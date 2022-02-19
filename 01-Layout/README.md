@@ -8,7 +8,7 @@ I used:
 :art: HTML, CSS and SASS. <br>
 :computer: Parcel.
 
-## Links to exercises
+## Links to check the exercises of this module
 
 - [Layout1](./Layout1/README.md)
 - [Layout2](./Layout2/README.md)
