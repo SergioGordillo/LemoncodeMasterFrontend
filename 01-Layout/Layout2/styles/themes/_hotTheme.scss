@@ -1,0 +1,18 @@
+@use '../colors' as c;
+@use '../typography' as t;
+
+// Colors
+$box: c.$red;
+$important: c.$brown;
+$warning: c.$pink;
+
+// Border-radius
+$border-radius: initial;
+
+// Fonts
+$principal-font: t.$roboto;
+$secondary-font: t.$roboto;
+$font-weight: t.$font-weight;
+
+// Shadows
+$shadow-box: c.$left-shadow;

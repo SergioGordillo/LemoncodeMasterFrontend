@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    border: 1px solid black;
+}
+
+h1 {
+    padding: 1%;
+}
+
+ul {
+    display: flex;
+}
+
+.menu-item {
+    height: 120%;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0.3%;
+    background-color: #1E6564;
+    color: #FFF;
+    list-style: none;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #113E3E;
+}
+
+.end {
+    justify-content: end;
+}
+
+@media screen and (max-width: 722px) {
+    ul {
+        display: block;
+    }
+
+    .end {
+        justify-content: start;
+    }
+} 
+

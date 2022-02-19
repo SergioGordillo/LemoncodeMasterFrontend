@@ -1,0 +1,17 @@
+@use '../colors' as c;
+
+// Colors
+$box: c.$blue;
+$important: c.$dark-blue;
+$warning: c.$light-blue;
+
+// Border
+$border-radius: c.$cold-border;
+
+// Shadows
+$shadow-box: c.$right-shadow;
+
+// Fonts
+$principal-font: initial;
+$secondary-font: initial; 
+$font-weight: initial;
