@@ -29,44 +29,34 @@ function calculateAverageMark(totalStudentMarks, studentsNumber) { //Function th
 }
 
 function calculateSpanishClassAverageMark(averageMark) {
-    console.log("me muestra mi nota media", averageMark);
     var markText = " ";
 
-    switch (averageMark) {
-        case 10:
-            markText = "Esta clase ha obtenido una matrícula de honor"
-            break;
-        case averageMark >= 9 && averageMark < 10:
-            markText = "Esta clase ha obtenido un sobresaliente"
-            break;
-        case averageMark >= 7 && averageMark < 9:
-            markText = "Esta clase ha obtenido un notable"
-            break;
-        case averageMark >= 6 && averageMark < 7:
-            markText = "Esta clase ha obtenido un bien"
-            break;
-        case averageMark >= 5 && averageMark < 6:
-            markText = "Esta clase ha obtenido un suficiente"
-            break;
-        case averageMark >= 4 && averageMark < 5:
-            markText = "Esta clase ha obtenido un insuficiente"
-            break;
-        case averageMark < 4:
-            markText = "Esta clase ha obtenido un muy deficiente"
-            break;
-        default:
-            break;
+    if (averageMark === 10) {
+        markText = "Esta clase ha obtenido una matrícula de honor";
+    } else if (averageMark >= 9 && averageMark < 10) {
+        markText = "Esta clase ha obtenido un sobresaliente";
+    } else if (averageMark >= 7 && averageMark < 9) {
+        markText = "Esta clase ha obtenido un notable";
+    } else if (averageMark >= 6 && averageMark < 7) {
+        markText = "Esta clase ha obtenido un bien";
+    } else if (averageMark >= 5 && averageMark < 6) {
+        markText = "Esta clase ha obtenido un suficiente";
+    } else if (averageMark >= 4 && averageMark < 5) {
+        markText = "Esta clase ha obtenido un insuficiente";
+    } else if (averageMark < 4) {
+        markText = "Esta clase ha obtenido un muy deficiente";
+    } else if (averageMark == null || averageMark == undefined) {
+        markText = "No se ha recibido valor para poder calcular la nota media";
+    } else {
+        markText = "No hemos podido calcular la nota media, inténtelo más tarde.;";
     }
 
-    return console.log("Marktext", markText);
+    return console.log(markText);
 }
 
 // MAIN CODE OF THE PROGRAM
 
 const studentsNumber = getLengthOfObject(eso2);
-console.log("studentsNumber", studentsNumber); //OK
 const totalStudentMarks = calculateTotalStudentMarks(eso2);
-console.log("totalStudentMarks", totalStudentMarks); //OK
 const averageMark = calculateAverageMark(totalStudentMarks, studentsNumber);
-console.log("averageMark", averageMark);
 calculateSpanishClassAverageMark(averageMark);
