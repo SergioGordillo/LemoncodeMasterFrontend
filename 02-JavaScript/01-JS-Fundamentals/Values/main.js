@@ -19,21 +19,20 @@ function Person(name, age) {
     this.age = age;
 }
 
-class Walker {
-    constructor() { }
-    walk() {
-        console.log("I am walking");
-    }
+function Ricardo() {
+    Person.call("Ricardo", "30");
+    this.country = "Spain";
 }
 
+// Ricardo.prototype = Object.create(Person.prototype);
+// Ricardo.prototype.constructor = Ricardo;
 
-// Person.prototype.walk = function () {
-//     console.log("I'm walking");
-// };
+Ricardo.prototype.__proto__ = Person.prototype;
 
-Person.prototype.walk = Walker.prototype.walk;
+var ricardo = new Ricardo();
 
-const ricardo = new Person("Ricardo", 24);
-showValues(ricardo);
+console.log(ricardo);
+// console.log(ricardo.name);
+// console.log(ricardo.age);
 
 
