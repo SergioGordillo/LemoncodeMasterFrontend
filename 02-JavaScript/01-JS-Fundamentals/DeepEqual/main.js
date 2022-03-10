@@ -26,7 +26,24 @@ var clonedFriend = {
     friends: ["Juan"],
 };
 
-function isDeepEqual(a, b) {
+function isDeepEqual(friend, clonedFriend) {
+    var equality = isEqual(friend, clonedFriend);
+
+    if (equality) {
+        for (var key in friend) {
+            if (!clonedFriend.hasOwnProperty(key)
+                || typeof (friend) !== typeof (clonedFriend)
+                || !isDeepEqual(friend[key], clonedFriend[key])) {
+                equality = false;
+                return equality;
+            } else {
+                equality = true;
+                return equality;
+            }
+        }
+    } else {
+        return equality;
+    }
 
 }
-console.log(isDeepEqual(user, clonedUser)); // true
+console.log(isDeepEqual(friend, clonedFriend)); // true
