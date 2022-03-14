@@ -27,23 +27,17 @@ var clonedFriend = {
 };
 
 function isDeepEqual(friend, clonedFriend) {
-    var equality = isEqual(friend, clonedFriend);
-
-    if (equality) {
-        for (var key in friend) {
-            if (!clonedFriend.hasOwnProperty(key)
-                || typeof (friend) !== typeof (clonedFriend)
-                || !isDeepEqual(friend[key], clonedFriend[key])) {
-                equality = false;
-                return equality;
-            } else {
-                equality = true;
-                return equality;
-            }
-        }
-    } else {
-        return equality;
+    for (var key in friend) {
+        if (
+            !friend.hasOwnProperty(key) ||
+            !clonedFriend.hasOwnProperty(key) ||
+            typeof friend[key] !== typeof clonedFriend[key] ||
+            (typeof friend[key] === "object" && !isDeepEqual(friend[key], clonedFriend[key])) ||
+            (typeof friend[key] !== "object" && friend[key] !== clonedFriend[key])
+        )
+            return false;
     }
-
+    return true;
 }
-console.log(isDeepEqual(friend, clonedFriend)); // true
+
+console.log(isDeepEqual(friend, clonedFriend));
