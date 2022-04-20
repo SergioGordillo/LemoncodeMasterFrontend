@@ -66,8 +66,10 @@ module.exports = {
         }),
         new CleanWebpackPlugin()
     ],
+    devtool: "eval-source-map",
     devServer: {
         port: "8081",
-        hot: true
+        hot: true,
+        stats: "errors-only"
     }
 }
