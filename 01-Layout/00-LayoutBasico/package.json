@@ -1,0 +1,21 @@
+{
+  "name": "00-layoutbasico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ej1": "rimraf dist && parcel ./Layout1/index.html",
+    "ej2": "rimraf dist && parcel ./Layout2/index.html",
+    "ej3": "rimraf dist && parcel ./Layout3/index.html",
+    "ej4": "rimraf dist && parcel ./Layout4/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.2",
+    "parcel": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "sass": "^1.53.0"
+  }
+}

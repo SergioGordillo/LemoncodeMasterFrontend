@@ -1,0 +1,12 @@
+{
+  "name": "01-layout",
+  "version": "1.0.0",
+  "description": "Exercises of Lemoncode Frontend Master's Degree Module 1 Layout.",
+  "main": "index.js",
+  "scripts": {
+    "ej1": "parcel ./Layout1/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
