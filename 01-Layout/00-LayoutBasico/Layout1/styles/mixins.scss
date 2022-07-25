@@ -1,6 +1,4 @@
-@use 'colors' as c;
-
-@mixin container-mixin-1 {
+@mixin container-mixin-1 ($baseColor, $textColor1) {
     display: flex;
     flex-flow: row wrap;
     align-content: center;
@@ -19,12 +17,12 @@
         width: 8%;
         height: 80%;
         word-break: break-word;
-        background-color: c.$baseColor;
+        background-color: $baseColor;
     }
 
     .base-color {
         width: 12%;
-        color: c.$textColor1;
+        color: $textColor1;
     }
 
     .darken-4 {
@@ -33,20 +31,20 @@
 
     @for $i from 1 through 4 {
         .darken-#{$i} {
-            background-color: darken(c.$baseColor, $i*5%);
-            color: lighten(c.$textColor1, $i*5%);
+            background-color: darken($baseColor, $i*5%);
+            color: lighten($textColor1, $i*5%);
         }
     }
 
     @for $i from 1 through 4 {
         .lighten-#{$i} {
-            background-color: lighten(c.$baseColor, $i*5%);
-            color: darken(c.$textColor1, $i*5%);
+            background-color: lighten($baseColor, $i*5%);
+            color: darken($textColor1, $i*5%);
         }
     }
 }
 
-@mixin container-mixin-2 {
+@mixin container-mixin-2 ($baseColor2, $textColor2) {
     display: flex;
     flex-flow: row wrap;
     align-content: center;
@@ -64,12 +62,12 @@
         width: 8%;
         height: 80%;
         word-break: break-word;
-        background-color: c.$baseColor2;
+        background-color: $baseColor2;
     }
 
     .base-color {
         width: 12%;
-        color: c.$textColor2;
+        color: $textColor2;
     }
 
     .darken-4 {
@@ -78,20 +76,20 @@
 
     @for $i from 1 through 4 {
         .darken-#{$i} {
-            background-color: darken(c.$baseColor2, $i*5%);
-            color: lighten(c.$textColor2, $i*5%);
+            background-color: darken($baseColor2, $i*5%);
+            color: lighten($textColor2, $i*5%);
         }
     }
 
     @for $i from 1 through 4 {
         .lighten-#{$i} {
-            background-color: lighten(c.$baseColor2, $i*5%);
-            color: darken(c.$textColor2, $i*5%);
+            background-color: lighten($baseColor2, $i*5%);
+            color: darken($textColor2, $i*5%);
         }
     }
 }
 
-@mixin container-mixin-3 {
+@mixin container-mixin-3 ($baseColor3, $textColor3) {
     display: flex;
     flex-flow: row wrap;
     align-content: center;
@@ -109,12 +107,12 @@
         width: 8%;
         height: 80%;
         word-break: break-word;
-        background-color: c.$baseColor3;
+        background-color: $baseColor3;
     }
 
     .base-color {
         width: 12%;
-        color: c.$textColor3;
+        color: $textColor3;
     }
 
     .darken-4 {
@@ -123,15 +121,15 @@
 
     @for $i from 1 through 4 {
         .darken-#{$i} {
-            background-color: darken(c.$baseColor3, $i*5%);
-            color: lighten(c.$textColor3, $i*5%);
+            background-color: darken($baseColor3, $i*5%);
+            color: lighten($textColor3, $i*5%);
         }
     }
 
     @for $i from 1 through 4 {
         .lighten-#{$i} {
-            background-color: lighten(c.$baseColor3, $i*5%);
-            color: darken(c.$textColor3, $i*5%);
+            background-color: lighten($baseColor3, $i*5%);
+            color: darken($textColor3, $i*5%);
         }
     }
 }

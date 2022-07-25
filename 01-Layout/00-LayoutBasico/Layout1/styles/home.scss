@@ -1,4 +1,3 @@
-@use 'colors' as c;
 @use 'mixins';
 
 body {
@@ -6,15 +5,15 @@ body {
   overflow: hidden;
 
   .container-1 {
-    @include mixins.container-mixin-1;
+    @include mixins.container-mixin-1($baseColor: #F52100, $textColor1: #548FD1);
   }
 
   .container-2 {
-    @include mixins.container-mixin-2;
+    @include mixins.container-mixin-2($baseColor2: #548FD1, $textColor2: #F57700);
   }
 
   .container-3 {
-    @include mixins.container-mixin-3;
+    @include mixins.container-mixin-3($baseColor3: #56D154, $textColor3: #C987D6);
   }
 
 }
