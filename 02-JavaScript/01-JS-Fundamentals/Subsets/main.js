@@ -10,3 +10,15 @@ function subsets(word) {
 
 console.log(subsets(word));
 
+// CHALLENGE
+
+var challenge_word = "challenge";
+
+function subsetsChallenge(challenge_word) {
+    return Array.prototype.map((challenge_word) => {
+        console.log("challenge_word", challenge_word)
+    })
+}
+
+subsetsChallenge(challenge_word);
+

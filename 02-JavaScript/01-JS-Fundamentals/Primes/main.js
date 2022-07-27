@@ -4,7 +4,7 @@ function isPrime(num) { //It gives you the information about a number being a pr
     if (num <= 1) return false;
 
     for (var i = 2, prime = true; i < num && prime; i++) {
-        prime = num % i !== 0;
+        prime = num % i !== 0; //If !==0 it will be prime, in other case it wont be prime
     }
     return prime;
 }

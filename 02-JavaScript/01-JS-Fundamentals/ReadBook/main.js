@@ -12,4 +12,5 @@ function isBookRead(books, titleToSearch) {
 }
 
 console.log(isBookRead(books, "The end of the times"));
+console.log(isBookRead(books, "Harry Potter and the Chamber of Secrets"));
 console.log(isBookRead(books, "Harry Potter and the Prisoner of Azkaban"));
