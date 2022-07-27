@@ -12,5 +12,5 @@ var person = {
 };
 console.log(person.wife.getSurname()); //Jiménez
 var surnameFunction = person.wife.getSurname;
-console.log(surnameFunction()); //Pérez, i dont understand why
+console.log(surnameFunction()); //Pérez
 console.log(surnameFunction.call(person)); // González
