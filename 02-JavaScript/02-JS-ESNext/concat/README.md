@@ -6,3 +6,11 @@ TIP: Se hace en 1 línea. No utilices el método Array.prototype.concat().
 
 const concat = (a, b) => {}; // Implementation here.
  -->
+
+ <!-- APARTADO B
+ 
+ Repite el ejercicio anterior suponiendo cualesquiera arrays de entrada (no te limites solamente a 2).
+ 
+ const concatMulti = (/* multiples arrays */) => {}; // Implementation here.
+ 
+  -->
