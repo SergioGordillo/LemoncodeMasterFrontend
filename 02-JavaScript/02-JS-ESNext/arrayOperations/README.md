@@ -20,4 +20,9 @@ const tail = (/* array */) => {}; // Implementation here.
 
 const init = (/* array */) => {}; // Implementation here. -->
 
+<!-- APARTADO D -->
 
+<!-- Implementa una función last (inmutable), tal que, dado un array como entrada devuelva el último elemento.
+
+const last = (/* array */) => {}; // Implementation here.
+ -->
