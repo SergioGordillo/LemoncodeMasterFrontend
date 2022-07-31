@@ -30,7 +30,7 @@ console.log(a, b);
 
  <!-- Sin tocar ninguno de los console.log anteriores, modifica ligeramente el código para que muestre la siguiente secuencia: 
  
- 1 3
+1 3
 1 3
 1 2
 5
