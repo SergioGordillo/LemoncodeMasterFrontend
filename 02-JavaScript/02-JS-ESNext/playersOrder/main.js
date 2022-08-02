@@ -1,27 +1,24 @@
 const beginningOrder = ["Ana", "Juan", "Pablo", "Lucia"];
-const players = beginningOrder.length;
 
-const getRemainder = (turns, players) => {
-    return turns % players;
-}
-//1, 5, 9, 13, 17
+const getPlayersOrder = (beginningOrder, turns) => {
 
-const getPlayersOrder = (turns, players, beginningOrder) => {
-    // ["Ana", "Juan", "Pablo", "Lucia"] 0 turn
-    // ["Juan", "Pablo", "Lucia", "Ana"] 1 turn
-    // ["Pablo", "Lucia", "Ana", "Juan"] 2 turn
-    // ["Lucia", "Ana", "Juan", "Pablo"] 3 turn
-    // ["Ana", "Juan", "Pablo", "Lucia"] 4 turn
-
-    console.log("BeginningOrderFunction", beginningOrder);
-
-    if (turns = 0) {
+    if (turns === 0) {
         return beginningOrder;
-    } else if (getRemainder(1, 4) == 1) {
-        const firstPlayer = beginningOrder.shift();
-        const newOrder = beginningOrder.push(firstPlayer);
-        console.log(newOrder);
     }
-};
 
-getPlayersOrder(1, 4, beginningOrder);
+    for (let i = 0; i < turns; i++) {
+        const firstPlayer = beginningOrder.shift();
+        beginningOrder.push(firstPlayer);
+        return beginningOrder;
+    }
+}
+
+console.log("0:", getPlayersOrder(beginningOrder, 0));
+console.log("1:", getPlayersOrder(beginningOrder, 1));
+console.log("2:", getPlayersOrder(beginningOrder, 2));
+console.log("3:", getPlayersOrder(beginningOrder, 3));
+console.log("4:", getPlayersOrder(beginningOrder, 4));
+console.log("5:", getPlayersOrder(beginningOrder, 5));
+console.log("6:", getPlayersOrder(beginningOrder, 6));
+console.log("7:", getPlayersOrder(beginningOrder, 7));
+console.log("8:", getPlayersOrder(beginningOrder, 8));
