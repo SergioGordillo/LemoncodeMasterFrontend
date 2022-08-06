@@ -4,7 +4,7 @@ class Reminder {
     }
 
     remindMe(delay) {
-        setTimeout(function () {
+        setTimeout(() => {
             console.log(`Your reminder after ${delay} seconds is: ${this.text}`);
         }, delay * 1000);
     }
@@ -12,4 +12,5 @@ class Reminder {
 
 const example = new Reminder("Hello world");
 console.log(example);
-console.log(example.remindMe(3));
+example.remindMe(3);
+
