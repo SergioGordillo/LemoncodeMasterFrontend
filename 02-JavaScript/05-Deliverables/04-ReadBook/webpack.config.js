@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: ["./main.js"],
+    entry: ["./src/main.ts"],
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.ts$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
             }
@@ -14,9 +14,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html', //Name of file in ./dist/
-            template: 'index.html', //Name of template in ./src
+            template: './src/index.html', //Name of template in ./src
             scriptLoading: "blocking", // I want bundle to have it downloaded to start processing it
             hash: true
         }),
-    ]
+    ],
+    stats: "errors-only"
 }

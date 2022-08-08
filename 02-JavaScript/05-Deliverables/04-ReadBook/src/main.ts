@@ -1,10 +1,15 @@
-var books = [
+interface Books {
+    title: string,
+    isRead: boolean
+}
+
+var books: Books[] = [
     { title: "Harry Potter and the Philosopher's Stone", isRead: true },
     { title: "Harry Potter and the Chamber of Secrets", isRead: false },
     { title: "Harry Potter and the Prisoner of Azkaban", isRead: true },
 ];
 
-function isBookRead(books, titleToSearch) {
+function isBookRead(books: Books[], titleToSearch: string) {
     var bookByTitle = books.find(function (book) {
         return book.title === titleToSearch;
     });
