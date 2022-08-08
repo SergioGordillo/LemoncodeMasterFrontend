@@ -4,6 +4,7 @@
   "description": "Crea una función `isBookRead` que reciba una lista de libros y un título y devuelva si se ha leído o no el libro.\r Un libro es un objeto con `title` como string y `isRead` como booleano. En caso de no existir el libro devolver false",
   "main": "main.js",
   "scripts": {
+    "start": "webpack serve --mode development",
     "build": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,8 +16,10 @@
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
     "babel-loader": "^8.2.5",
+    "html-webpack-plugin": "^5.5.0",
     "typescript": "^4.7.4",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   }
 }
