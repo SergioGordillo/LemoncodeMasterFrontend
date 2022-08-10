@@ -4,7 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-    entry: { app: "./src/main.js" },
+    context: path.resolve(__dirname, 'src'),
+    entry: { app: "./main.js" },
     output: {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
@@ -17,6 +18,20 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require("sass"),
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: [MiniCssExtractPlugin.loader, { loader: "css-loader" }]
@@ -26,7 +41,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html', //Name of file in ./dist/
-            template: './src/index.html', //Name of template in ./src
+            template: './index.html', //Name of template in ./src
             scriptLoading: "blocking", // I want bundle to have it downloaded to start processing it
             hash: true
         }),
