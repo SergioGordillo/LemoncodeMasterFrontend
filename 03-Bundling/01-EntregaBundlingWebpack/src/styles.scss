@@ -5,4 +5,9 @@ $letter-color: white;
 body {
     background-color: $back-color;
     color: $letter-color;
+
+    .escudo {
+        height: 20%;
+        width: 20%;
+    }
 }

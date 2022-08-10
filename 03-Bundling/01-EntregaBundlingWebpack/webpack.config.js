@@ -3,8 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
 
+const basePath = __dirname;
+
 module.exports = {
-    context: path.resolve(__dirname, 'src'),
+    context: path.join(basePath, "src"),
     entry: { app: "./main.js" },
     output: {
         filename: '[name].[chunkhash].js',
@@ -35,7 +37,16 @@ module.exports = {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: [MiniCssExtractPlugin.loader, { loader: "css-loader" }]
-            }
+            },
+            {
+                test: /\.(png|jpg)$/,
+                type: "asset/resource",
+            },
+            {
+                test: /\.html$/,
+                exclude: /node_modules/,
+                use: ["html-loader"]
+            },
         ]
     },
     plugins: [
