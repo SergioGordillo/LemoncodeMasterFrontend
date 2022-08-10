@@ -1,7 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-    entry: { app: "./src/main.js", myStyles: "./src/styles.css" },
+    entry: { app: "./src/main.js" },
+    output: {
+        filename: '[name].[chunkhash].js',
+        path: path.resolve(__dirname, 'dist')
+    },
     module: {
         rules: [
             {
@@ -12,7 +19,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+                use: [MiniCssExtractPlugin.loader, { loader: "css-loader" }]
             }
         ]
     },
@@ -23,6 +30,11 @@ module.exports = {
             scriptLoading: "blocking", // I want bundle to have it downloaded to start processing it
             hash: true
         }),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        }),
+        new CleanWebpackPlugin()
     ],
     stats: "errors-only"
 }
