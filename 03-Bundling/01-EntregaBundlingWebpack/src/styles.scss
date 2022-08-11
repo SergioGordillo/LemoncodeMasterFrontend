@@ -2,6 +2,7 @@ $back-color: red;
 $letter-color: white;
 
 
+
 body {
     background-color: $back-color;
     color: $letter-color;
@@ -9,5 +10,6 @@ body {
     .escudo {
         height: 20%;
         width: 20%;
+        border-radius: 5px;
     }
 }
