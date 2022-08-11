@@ -7,7 +7,10 @@ const basePath = __dirname;
 
 module.exports = {
     context: path.join(basePath, "src"),
-    entry: { app: "./main.js" },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
+    },
+    entry: { app: "./main.jsx" },
     output: {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
@@ -15,7 +18,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
