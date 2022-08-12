@@ -10,7 +10,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
     },
-    entry: { app: "./main.jsx" },
+    entry: { app: "./main.tsx" },
     output: {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
@@ -18,7 +18,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|tsx)$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
