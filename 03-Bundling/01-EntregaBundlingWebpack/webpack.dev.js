@@ -1,6 +1,7 @@
 const common = require("./webpack.common.js");
 const { merge } = require("webpack-merge");
 const resolve = require('path').resolve;
+const dotEnv = require("dotenv-webpack");
 
 module.exports = merge(common, {
     mode: "development",
@@ -36,6 +37,11 @@ module.exports = merge(common, {
             },
         ]
     },
+    plugins: [
+        new dotEnv({
+            path: "./dev.env"
+        })
+    ],
     devServer: {
         port: "8080",
         hot: true

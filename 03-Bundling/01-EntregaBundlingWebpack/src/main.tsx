@@ -16,3 +16,4 @@ root.render(
 );
 
 console.log("Hi gunners");
+console.log(`Api base: ${process.env.API_BASE}`);
