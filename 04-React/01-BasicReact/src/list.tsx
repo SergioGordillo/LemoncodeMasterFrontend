@@ -11,9 +11,6 @@ export const ListPage: React.FC = () => {
     const [members, setMembers] = React.useState<MemberEntity[]>([]);
     const [organization, setOrganization] = React.useState("Lemoncode");
 
-    console.log("org", organization);
-
-
     React.useEffect(() => {
         fetch(`https://api.github.com/orgs/lemoncode/members`)
             .then((response) => response.json())
