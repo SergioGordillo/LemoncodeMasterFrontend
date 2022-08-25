@@ -31,19 +31,16 @@ export const MembersTable = () => {
                 />
                 <button onClick={handleOrganization}>Search</button>
             </div>
-            <table>
-                <thead className="list-user-list-container">
-                    <th className="list-header">Avatar</th>
-                    <th className="list-header">Id</th>
-                    <th className="list-header">Name</th>
-                </thead>
-                <tbody>
-
-                    {members.map((member) => (
-                        <MemberTableRow key={member.id} member={member} />
-                    ))}
-                </tbody>
-            </table>
+            <thead className="list-user-list-container">
+                <th className="list-header">Avatar</th>
+                <th className="list-header">Id</th>
+                <th className="list-header">Name</th>
+            </thead>
+            <tbody>
+                {members.map((member) => (
+                    <MemberTableRow key={member.id} member={member} />
+                ))}
+            </tbody>
         </>
     )
 }
