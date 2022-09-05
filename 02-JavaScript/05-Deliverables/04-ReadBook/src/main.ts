@@ -9,7 +9,7 @@ var books: Books[] = [
     { title: "Harry Potter and the Prisoner of Azkaban", isRead: true },
 ];
 
-function isBookRead(books: Books[], titleToSearch: string) {
+function isBookRead(books: Books[], titleToSearch: string): boolean {
     var bookByTitle = books.find(function (book) {
         return book.title === titleToSearch;
     });
