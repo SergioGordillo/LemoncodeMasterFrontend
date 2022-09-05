@@ -14,8 +14,7 @@
         "esModuleInterop": true
     },
     "include": [
-        "src/**/*",
-        "node_modules/npm-run-all"
+        "src/**/*"
     ],
     "exclude": [
         "node_modules"
