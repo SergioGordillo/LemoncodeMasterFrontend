@@ -1,5 +1,7 @@
 class slotMachine {
 
+    coins: number;
+
     constructor(coins) {
         this.coins = coins;
     }
