@@ -13,9 +13,11 @@ export const MemberTableRow: React.FC<Props> = (props) => {
     return (
         <tr key={member.id} className="member-row">
             <>
-                <img className="member-img" src={member.avatar_url} />
-                <span>{member.id}</span>
-                <Link to={`/detail/${member.login}`}>{member.login}</Link>
+                <div className="member-img-wrapper">
+                    <img className="member-img" src={member.avatar_url} />
+                </div>
+                <span className="y-center id">{member.id}</span>
+                <Link className="y-center name" to={`/detail/${member.login}`}>{member.login}</Link>
             </>
         </tr>
     )
