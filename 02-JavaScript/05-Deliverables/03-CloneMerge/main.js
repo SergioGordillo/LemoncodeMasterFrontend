@@ -47,12 +47,6 @@ clone(friend);
 let a = { name: "Maria", surname: "Ibañez", country: "SPA" };
 let b = { name: "Luisa", age: 31, married: true };
 
-function merge(a, b) {
-    const clonedA = clone(a);
-    const clonedB = clone(b);
-    const result = { ...clonedA, ...clonedB }
-    console.log("Este es el resultado de merge: ", result);
-    return result;
-}
+const merge = (a, b) => ({ ...clone(b), ...clone(a) });
 
-merge(a, b);
+console.log(merge(a, b));
