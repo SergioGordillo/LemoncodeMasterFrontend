@@ -37,7 +37,7 @@ const init = (countries) => {
 console.log("Apartado C: " + init(countries));
 
 // APARTADO D
-const series = ["Black Mirror", "The Expanse", "How I Met Your Mother", "Mr. Robot", "The Billion Dollar Code"];
+const series = ["Black Mirror", "The Expanse", "How I Met Your Mother", "Mr. Robot", "The Billion Dollar Code", "Big Bang Theory", "Friends", "The Lord of the Rings: Rings of Power"];
 //With function which is mutable
 // const last = (series) => {
 //     const lastSerie = series.pop();
@@ -45,7 +45,8 @@ const series = ["Black Mirror", "The Expanse", "How I Met Your Mother", "Mr. Rob
 // };
 //With function which is not mutable
 const last = (series) => {
-    const [, , , , lastSerie] = series;
+    const lastIndex = series.length - 1;
+    const lastSerie = series[lastIndex];
     return lastSerie;
 };
 console.log("Apartado D: " + last(series));
