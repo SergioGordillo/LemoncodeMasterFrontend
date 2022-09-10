@@ -25,13 +25,6 @@
     grid-template-columns: 8% 23.5fr 3fr;
     grid-template-rows: 70px;
     grid-gap: 10px 5px;
-    background-color: salmon;
-    border: 1px solid black;
-}
-
-.member-img-wrapper {
-    background-color: red;
-    border: 1px solid black;
 }
 
 .member-img {
@@ -45,12 +38,5 @@
 .y-center {
     display: grid;
     align-items: center;
-}
-
-.id {
-    background-color: green;
-}
-
-.name {
-    background-color: yellow;
+    margin-left: 19%;
 }
