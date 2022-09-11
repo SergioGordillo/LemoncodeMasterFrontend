@@ -1,5 +1,7 @@
 import React from "react";
 
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -30,16 +32,19 @@ export const MembersTable = () => {
     }
 
     return (
+
         <>
-            <div>
+            <Box component="form"
+                sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off">
                 <label> Write the organization you want to look for </label>
-                <input
-                    type="text"
-                    value={organization}
-                    onChange={e => setOrganization(e.target.value)}
-                />
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" value={organization} onChange={e => setOrganization(e.target.value)}>
+                </TextField>
                 <button onClick={handleOrganization}>Search</button>
-            </div>
+            </Box>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
