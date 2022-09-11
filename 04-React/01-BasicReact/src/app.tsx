@@ -10,9 +10,9 @@ export const App = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<LoginPage />} />
-                {/* <Route path="/list" element={<ListPage />} />
-                <Route path="/detail/:id" element={<DetailPage />} /> */}
-                <Route path="/table" element={<BasicTable />} />
+                <Route path="/list" element={<ListPage />} />
+                <Route path="/detail/:id" element={<DetailPage />} />
+                {/* <Route path="/table" element={<BasicTable />} /> */}
             </Routes>
         </Router>
     );

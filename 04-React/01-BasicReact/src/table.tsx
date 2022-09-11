@@ -28,14 +28,13 @@ const rows = [
 export default function BasicTable() {
     return (
         <TableContainer component={Paper}>
+
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                        <TableCell>Avatar </TableCell>
+                        <TableCell align="right">Id</TableCell>
+                        <TableCell align="right">Name</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -49,8 +48,6 @@ export default function BasicTable() {
                             </TableCell>
                             <TableCell align="right">{row.calories}</TableCell>
                             <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
