@@ -46,7 +46,7 @@ export const MembersTable = () => {
                         <TableRow>
                             <TableCell>Avatar</TableCell>
                             <TableCell align="left">Id</TableCell>
-                            <TableCell align="right">Name</TableCell>
+                            <TableCell align="left">Name</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
