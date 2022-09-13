@@ -11,9 +11,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TextField from '@mui/material/TextField';
 
-
-
-
 import { MemberTableRow } from "./member-table-row";
 import { MemberEntity } from "./model";
 
@@ -45,9 +42,11 @@ export const MembersTable = () => {
                 noValidate
                 autoComplete="off">
                 <label> Write the organization you want to look for </label>
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" value={organization} onChange={e => setOrganization(e.target.value)}>
+                <TextField id="outlined-basic" label="Write Here" variant="outlined" value={organization} onChange={e => setOrganization(e.target.value)}>
                 </TextField>
-                <Button variant="outlined" onClick={handleOrganization}>
+                <Button variant="contained" onClick={handleOrganization} sx={{
+                    minHeight: 56,
+                }}>
                     Search
                 </Button>
             </Box>

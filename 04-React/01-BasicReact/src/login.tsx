@@ -1,5 +1,8 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 export const LoginPage: React.FC = () => {
     const navigate = useNavigate();
@@ -24,22 +27,19 @@ export const LoginPage: React.FC = () => {
                 <div>
                     <div>
                         <label>Username: </label>
-                        <input
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
+                        <TextField id="outlined-basic" label="Username" variant="outlined" value={username} onChange={(e) => setUsername(e.target.value)}>
+                        </TextField>
                     </div>
                     <div>
                         <label>Password: </label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
+                        <TextField id="outlined-basic" label="Password" type="password" variant="outlined" value={password} onChange={(e) => setPassword(e.target.value)}>
+                        </TextField>
                     </div>
                 </div>
-
-                <button type="submit">Login</button>
+                <Button variant="contained" type="submit">
+                    Login
+                </Button>
+                {/* <button type="submit">Login</button> */}
             </form>
         </>
     );
