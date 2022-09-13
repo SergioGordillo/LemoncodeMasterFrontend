@@ -39,7 +39,6 @@ export const LoginPage: React.FC = () => {
                 <Button variant="contained" type="submit">
                     Login
                 </Button>
-                {/* <button type="submit">Login</button> */}
             </form>
         </>
     );

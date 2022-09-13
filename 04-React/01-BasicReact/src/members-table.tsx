@@ -13,8 +13,9 @@ import TextField from '@mui/material/TextField';
 
 import { MemberTableRow } from "./member-table-row";
 import { MemberEntity } from "./model";
+import AppPagination from "./appPagination";
 
-const getMembers = (organization: string): Promise<MemberEntity[]> => {
+export const getMembers = (organization: string): Promise<MemberEntity[]> => {
     return fetch(`https://api.github.com/orgs/${organization}/members`)
         .then((response) => response.json())
 }
@@ -66,6 +67,7 @@ export const MembersTable = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <AppPagination organization={organization} />
         </>
     )
 }
