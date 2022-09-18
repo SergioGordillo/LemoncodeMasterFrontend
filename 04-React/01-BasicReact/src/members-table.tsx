@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Pagination from '@mui/material/Pagination';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,13 +12,26 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TextField from '@mui/material/TextField';
 
+
+
 import { MemberTableRow } from "./member-table-row";
 import { MemberEntity } from "./model";
-import AppPagination from "./appPagination";
+// import AppPagination from "./appPagination";
 
 export const getMembers = (organization: string): Promise<MemberEntity[]> => {
     return fetch(`https://api.github.com/orgs/${organization}/members`)
         .then((response) => response.json())
+}
+
+export const servicePagination = {
+    getData: (members: MemberEntity[], organization: string) => {
+        return new Promise((resolve, reject) => {
+            resolve({
+                count: members.length,
+                data: getMembers(organization)
+            })
+        })
+    }
 }
 
 export const MembersTable = () => {
@@ -25,9 +39,20 @@ export const MembersTable = () => {
     const [members, setMembers] = React.useState<MemberEntity[]>([]);
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
 
+    const pageSize = 3;
+
+    console.log("members", members.length);
+
     React.useEffect(() => {
         getMembers(organization).then(setMembers);
     }, []);
+
+    useEffect(() => {
+        servicePagination.getData(members, organization).then(response => {
+            console.log(response);
+        })
+    }, [])
+
 
     const handleOrganization = () => {
         getMembers(organization).then(setMembers);
@@ -67,7 +92,13 @@ export const MembersTable = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <AppPagination organization={organization} />
+
+            <Box display={"flex"} justifyContent={"center"} alignItems={"center"}
+                sx={{
+                    margin: "20px 0px"
+                }}>
+                <Pagination count={10} />
+            </Box>
         </>
     )
 }
