@@ -15,7 +15,7 @@ import TextField from '@mui/material/TextField';
 
 
 import { MemberTableRow } from "./member-table-row";
-import { MemberEntity } from "./model";
+import { MemberEntity, PaginationEntity, PaginationDataEntity } from "./model";
 // import AppPagination from "./appPagination";
 
 export const getMembers = (organization: string): Promise<MemberEntity[]> => {
@@ -23,23 +23,29 @@ export const getMembers = (organization: string): Promise<MemberEntity[]> => {
         .then((response) => response.json())
 }
 
-export const servicePagination = {
-    getData: (members: MemberEntity[], organization: string) => {
-        return new Promise((resolve, reject) => {
-            resolve({
-                count: members.length,
-                data: getMembers(organization)
-            })
-        })
+async function getMembersPagination(members: MemberEntity[], organization: string, { from, to }): Promise<PaginationDataEntity> {
+
+    const membersData = await getMembers(organization)
+    const interval = membersData.slice(from, to);
+    return {
+        count: members.length + membersData.length,
+        data: interval
     }
 }
 
 export const MembersTable = () => {
 
+    const pageSize = 3;
+
     const [members, setMembers] = React.useState<MemberEntity[]>([]);
+    const [pagination, setPagination] = React.useState<PaginationEntity>({
+        count: 0,
+        from: 0,
+        to: pageSize
+    });
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
 
-    const pageSize = 3;
+
 
     console.log("members", members.length);
 
@@ -48,8 +54,11 @@ export const MembersTable = () => {
     }, []);
 
     useEffect(() => {
-        servicePagination.getData(members, organization).then(response => {
-            console.log(response);
+        // servicePagination.getData(members, organization).then(response => {
+        //     console.log(response);
+        // })
+        getMembersPagination(members, organization, { from: pagination.from, to: pagination.to }).then(response => {
+            setPagination({ ...pagination, count: response.count })
         })
     }, [])
 
@@ -97,7 +106,7 @@ export const MembersTable = () => {
                 sx={{
                     margin: "20px 0px"
                 }}>
-                <Pagination count={10} />
+                <Pagination count={pagination.count} />
             </Box>
         </>
     )
