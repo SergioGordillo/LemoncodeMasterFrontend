@@ -12,11 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TextField from '@mui/material/TextField';
 
-
-
 import { MemberTableRow } from "./member-table-row";
 import { MemberEntity, PaginationEntity, PaginationDataEntity } from "./model";
-// import AppPagination from "./appPagination";
 
 export const getMembers = (organization: string): Promise<MemberEntity[]> => {
     return fetch(`https://api.github.com/orgs/${organization}/members`)
@@ -27,6 +24,8 @@ async function getMembersPagination(members: MemberEntity[], organization: strin
 
     const membersData = await getMembers(organization)
     const interval = membersData.slice(from, to);
+    console.log("interval", interval);
+    console.log("countService", members.length + membersData.length);
     return {
         count: members.length + membersData.length,
         data: interval
@@ -36,7 +35,6 @@ async function getMembersPagination(members: MemberEntity[], organization: strin
 export const MembersTable = () => {
 
     const pageSize = 3;
-
     const [members, setMembers] = React.useState<MemberEntity[]>([]);
     const [pagination, setPagination] = React.useState<PaginationEntity>({
         count: 0,
@@ -45,32 +43,25 @@ export const MembersTable = () => {
     });
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
 
-
-
-    console.log("members", members.length);
-
-    React.useEffect(() => {
-        getMembers(organization).then(setMembers);
-    }, []);
-
     useEffect(() => {
-        // servicePagination.getData(members, organization).then(response => {
-        //     console.log(response);
-        // })
         getMembersPagination(members, organization, { from: pagination.from, to: pagination.to }).then(response => {
             setPagination({ ...pagination, count: response.count })
-            setMembers(response.data);
+            console.log("paginationCount", pagination.count); //TODO: Explorar bien, parece que aquí hay bugs
+            setMembers(response.data); //Esto es el interval
         })
     }, [pagination.from, pagination.to])
 
 
     const handleOrganization = () => {
         getMembers(organization).then(setMembers);
+        // getMembersPagination(members, organization, {from: pagination.from, to: pagination.to}).then(setMembers);
     }
 
-    const handlePageChange = (event, page) => {
+    const handlePageChange = (event: any, page: number) => { //It makes the calculations of the items we wanna show on screen for a given page
         const from = (page - 1) * pageSize;
         const to = (page - 1) * pageSize + pageSize;
+        console.log("from", from);
+        console.log("to", to);
 
         setPagination({ ...pagination, from: from, to: to })
 
@@ -86,7 +77,7 @@ export const MembersTable = () => {
                 noValidate
                 autoComplete="off">
                 <label> Write the organization you want to look for </label>
-                <TextField id="outlined-basic" label="Write Here" variant="outlined" value={organization} onChange={e => setOrganization(e.target.value)}>
+                <TextField id="outlined-basic" label="Write Here" variant="outlined" value={organization} onChange={e => setOrganization(e.target.value)}> //TODO: Implement OnDebounce
                 </TextField>
                 <Button variant="contained" onClick={handleOrganization} sx={{
                     minHeight: 56,
