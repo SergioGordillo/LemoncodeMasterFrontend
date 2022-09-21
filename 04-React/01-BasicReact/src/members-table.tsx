@@ -59,12 +59,21 @@ export const MembersTable = () => {
         // })
         getMembersPagination(members, organization, { from: pagination.from, to: pagination.to }).then(response => {
             setPagination({ ...pagination, count: response.count })
+            setMembers(response.data);
         })
-    }, [])
+    }, [pagination.from, pagination.to])
 
 
     const handleOrganization = () => {
         getMembers(organization).then(setMembers);
+    }
+
+    const handlePageChange = (event, page) => {
+        const from = (page - 1) * pageSize;
+        const to = (page - 1) * pageSize + pageSize;
+
+        setPagination({ ...pagination, from: from, to: to })
+
     }
 
     return (
@@ -106,7 +115,11 @@ export const MembersTable = () => {
                 sx={{
                     margin: "20px 0px"
                 }}>
-                <Pagination count={pagination.count} />
+                <Pagination
+                    color="primary"
+                    count={Math.ceil(pagination.count / pageSize)}
+                    onChange={handlePageChange}
+                />
             </Box>
         </>
     )
