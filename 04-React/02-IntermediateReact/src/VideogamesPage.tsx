@@ -1,8 +1,11 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 
+import { getVideogames } from "./services/getData";
+
 export const VideogamesPage: React.FC = () => {
+
+    console.log(getVideogames());
 
     return (
         <>
