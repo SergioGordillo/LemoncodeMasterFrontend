@@ -13,31 +13,23 @@ import TableRow from '@mui/material/TableRow';
 import TextField from '@mui/material/TextField';
 
 import { MemberTableRow } from "./member-table-row";
-import { MemberEntity } from "../model";
 import { getMembers } from "../api/member.api";
-
-export const mapMemberEntityFromAPIModelToVM = (data: any): MemberEntity[] => {
-    return data.map((data) => {
-        return {
-            id: data.id,
-            login: data.login,
-            avatar_url: data.avatar_url
-        }
-    })
-}
+import { mapMemberEntityFromAPIModelToVM } from "../api/member.mappers";
+import { MemberEntityVM } from "../model/MemberEntity";
 
 export const MembersTable = () => {
 
     const perpage: number = 3;
-    const page: number = 1;
-    const [members, setMembers] = React.useState<MemberEntity[]>([]);
+    const page: number = 0;
+    const [members, setMembers] = React.useState<MemberEntityVM[] | any>([]);
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
 
     useEffect(() => {
-        getMembers(organization, perpage, page).then(response => {
-            console.log(response);
-            return [];
-        })
+        const membersVM = getMembers(organization, perpage, page)
+            .then((data) => mapMemberEntityFromAPIModelToVM(data));
+        console.log("membersVM", membersVM);
+        setMembers(membersVM);
+        console.log("members", members);
     }, [])
 
 
@@ -86,8 +78,8 @@ export const MembersTable = () => {
                 }}>
                 <Pagination
                     color="primary"
-                    count={Math.ceil(pagination.count / pageSize)}
-                    onChange={handlePageChange}
+                // count={Math.ceil(pagination.count / pageSize)}
+                // onChange={handlePageChange}
                 /> //TODO: le meto la forma de gestionar la paginación de MUI
             </Box>
         </>
