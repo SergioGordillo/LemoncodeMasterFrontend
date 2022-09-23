@@ -21,7 +21,7 @@ export const MembersTable = () => {
 
     const perpage: number = 3;
     const page: number = 0;
-    const [members, setMembers] = React.useState<MemberEntityVM[] | any>([]);
+    const [members, setMembers] = React.useState<MemberEntityVM[]>([]);
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
 
     useEffect(() => {
