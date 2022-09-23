@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
-import { MemberEntity } from './model';
+import { MemberEntity } from '../model';
 
 interface Props {
     member: MemberEntity

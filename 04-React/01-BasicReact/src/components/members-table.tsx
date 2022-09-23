@@ -13,58 +13,36 @@ import TableRow from '@mui/material/TableRow';
 import TextField from '@mui/material/TextField';
 
 import { MemberTableRow } from "./member-table-row";
-import { MemberEntity, PaginationEntity, PaginationDataEntity } from "./model";
+import { MemberEntity } from "../model";
+import { getMembers } from "../api/member.api";
 
-export const getMembers = (organization: string): Promise<MemberEntity[]> => {
-    return fetch(`https://api.github.com/orgs/${organization}/members`)
-        .then((response) => response.json())
-}
-
-async function getMembersPagination(members: MemberEntity[], organization: string, { from, to }): Promise<PaginationDataEntity> {
-
-    const membersData = await getMembers(organization)
-    const interval = membersData.slice(from, to);
-    console.log("interval", interval);
-    console.log("countService", members.length + membersData.length);
-    return {
-        count: members.length + membersData.length,
-        data: interval
-    }
+export const mapMemberEntityFromAPIModelToVM = (data: any): MemberEntity[] => {
+    return data.map((data) => {
+        return {
+            id: data.id,
+            login: data.login,
+            avatar_url: data.avatar_url
+        }
+    })
 }
 
 export const MembersTable = () => {
 
-    const pageSize = 3;
+    const perpage: number = 3;
+    const page: number = 1;
     const [members, setMembers] = React.useState<MemberEntity[]>([]);
-    const [pagination, setPagination] = React.useState<PaginationEntity>({
-        count: 0,
-        from: 0,
-        to: pageSize
-    });
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
 
     useEffect(() => {
-        getMembersPagination(members, organization, { from: pagination.from, to: pagination.to }).then(response => {
-            setPagination({ ...pagination, count: response.count })
-            console.log("paginationCount", pagination.count); //TODO: Explorar bien, parece que aquí hay bugs
-            setMembers(response.data); //Esto es el interval
+        getMembers(organization, perpage, page).then(response => {
+            console.log(response);
+            return [];
         })
-    }, [pagination.from, pagination.to])
+    }, [])
 
 
-    const handleOrganization = () => {
-        getMembers(organization).then(setMembers);
-        // getMembersPagination(members, organization, {from: pagination.from, to: pagination.to}).then(setMembers);
-    }
-
-    const handlePageChange = (event: any, page: number) => { //It makes the calculations of the items we wanna show on screen for a given page
-        const from = (page - 1) * pageSize;
-        const to = (page - 1) * pageSize + pageSize;
-        console.log("from", from);
-        console.log("to", to);
-
-        setPagination({ ...pagination, from: from, to: to })
-
+    const handleOrganization = () => { //Tengo el mismo error que arriba
+        getMembers(organization, perpage, page).then(setMembers);
     }
 
     return (
@@ -110,7 +88,7 @@ export const MembersTable = () => {
                     color="primary"
                     count={Math.ceil(pagination.count / pageSize)}
                     onChange={handlePageChange}
-                />
+                /> //TODO: le meto la forma de gestionar la paginación de MUI
             </Box>
         </>
     )
