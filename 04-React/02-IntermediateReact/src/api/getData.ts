@@ -1,18 +1,18 @@
-import { environment } from "../core/environments/environment"
 import { ItemInfoEntity } from '../model/model';
 import { footballShirts } from "../database/footballshirts";
 import { videogames } from "../database/videogames";
 
-const baseUrl: string = environment.baseUrl;
 
-export const getFootballShirts = (): any => {
-    setTimeout(() => {
-        console.log(footballShirts);
-        return footballShirts;
-    }, 1000)
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export const getVideogames = (): Promise<ItemInfoEntity[]> => {
-    return fetch(`${baseUrl}/videogames`)
-        .then((response) => response.json())
+export async function getFootballShirts(): Promise<ItemInfoEntity[]> {
+    await timeout(3000);
+    return footballShirts;
+}
+
+export async function getVideogames(): Promise<ItemInfoEntity[]> {
+    await timeout(3000);
+    return videogames;
 }

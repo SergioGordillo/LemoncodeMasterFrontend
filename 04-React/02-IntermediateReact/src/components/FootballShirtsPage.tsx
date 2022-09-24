@@ -8,7 +8,7 @@ import { getFootballShirts } from "../api/getData";
 
 export const FootballShirtsPage: React.FC = () => {
 
-    console.log(getFootballShirts());
+    const footballshirts = console.log(getFootballShirts());
 
     return (
         <>
@@ -17,7 +17,7 @@ export const FootballShirtsPage: React.FC = () => {
             <h2>Hello from Football Shirts Page</h2>
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
-                    //TODO: Create a json with all the data of the images, create a service and consume it from here
+                    { }
                 </CardContent>
             </Card>
         </>
