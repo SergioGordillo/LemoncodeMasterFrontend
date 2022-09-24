@@ -25,17 +25,23 @@ export const MembersTable = () => {
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
 
     useEffect(() => {
-        const membersVM = getMembers(organization, perpage, page)
-            .then((data) => mapMemberEntityFromAPIModelToVM(data));
-        console.log("membersVM", membersVM);
-        setMembers(membersVM);
-        console.log("members", members);
+        getMembers(organization, perpage, page)
+            .then((data) => {
+                const membersVM = mapMemberEntityFromAPIModelToVM(data);
+                setMembers(membersVM);
+            }
+            );
     }, [])
 
 
-    const handleOrganization = () => { //Tengo el mismo error que arriba
-        getMembers(organization, perpage, page).then(setMembers);
-    }
+    const handleOrganization = () => {
+        getMembers(organization, perpage, page)
+            .then((data) => {
+                const membersVM = mapMemberEntityFromAPIModelToVM(data);
+                setMembers(membersVM);
+            }
+            )
+    };
 
     return (
 
