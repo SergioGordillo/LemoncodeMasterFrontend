@@ -20,9 +20,9 @@ import { MemberEntityVM } from "../model/MemberEntity";
 export const MembersTable = () => {
 
     const perpage: number = 3;
-    const page: number = 0;
     const [members, setMembers] = React.useState<MemberEntityVM[]>([]);
     const [organization, setOrganization] = React.useState<string>("Lemoncode");
+    const [page, setPage] = React.useState<number>(1);
 
     useEffect(() => {
         getMembers(organization, perpage, page)
@@ -31,16 +31,21 @@ export const MembersTable = () => {
                 setMembers(membersVM);
             }
             );
-    }, [])
+    }, [page])
 
 
     const handleOrganization = () => {
+        setPage(1);
         getMembers(organization, perpage, page)
             .then((data) => {
                 const membersVM = mapMemberEntityFromAPIModelToVM(data);
                 setMembers(membersVM);
             }
             )
+    };
+
+    const handlePagination = (event: React.ChangeEvent<unknown>, page: number) => {
+        setPage(page);
     };
 
     return (
@@ -84,9 +89,11 @@ export const MembersTable = () => {
                 }}>
                 <Pagination
                     color="primary"
-                // count={Math.ceil(pagination.count / pageSize)}
-                // onChange={handlePageChange}
-                /> //TODO: le meto la forma de gestionar la paginación de MUI
+                    count={10}
+                    defaultPage={1}
+                    page={page}
+                    onChange={handlePagination}
+                />
             </Box>
         </>
     )
