@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-import { getFootballShirts } from "./services/getData";
+import { getFootballShirts } from "../api/getData";
 
 export const FootballShirtsPage: React.FC = () => {
 

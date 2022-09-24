@@ -1,5 +1,5 @@
-import { environment } from "../environments/environment"
-import { ItemInfoEntity } from '../model';
+import { environment } from "../core/environments/environment"
+import { ItemInfoEntity } from '../model/model';
 
 const baseUrl: string = environment.baseUrl;
 

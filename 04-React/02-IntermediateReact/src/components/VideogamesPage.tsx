@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { getVideogames } from "./services/getData";
+import { getVideogames } from "../api/getData";
 
 export const VideogamesPage: React.FC = () => {
 

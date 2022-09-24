@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { FootballShirtsPage } from "./FootballShirtsPage";
-import { VideogamesPage } from "./VideogamesPage";
+import { FootballShirtsPage } from "../components/FootballShirtsPage";
+import { VideogamesPage } from "../components/VideogamesPage";
 
 
 
