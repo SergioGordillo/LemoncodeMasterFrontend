@@ -8,11 +8,11 @@ function timeout(ms) {
 }
 
 export async function getFootballShirts(): Promise<ItemInfoEntity[]> {
-    await timeout(3000);
+    await timeout(1000);
     return footballShirts;
 }
 
 export async function getVideogames(): Promise<ItemInfoEntity[]> {
-    await timeout(3000);
+    await timeout(1000);
     return videogames;
 }

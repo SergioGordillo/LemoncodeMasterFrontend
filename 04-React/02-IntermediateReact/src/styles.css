@@ -7,3 +7,16 @@ body {
 .navbar {
     padding: 10px;
 }
+
+.footballshirts-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media (max-width: 700px) {
+    .footballshirts-wrapper {
+        display: block;
+    }
+}
