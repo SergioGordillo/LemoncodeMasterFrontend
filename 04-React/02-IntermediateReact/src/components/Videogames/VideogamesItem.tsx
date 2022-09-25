@@ -8,20 +8,20 @@ import Typography from '@mui/material/Typography';
 import { ItemInfoEntity } from "../../model/model";
 
 interface Props {
-    footballShirt: ItemInfoEntity;
+    videogame: ItemInfoEntity;
 }
 
-export const FootballShirtItem: React.FC<Props> = (props) => {
+export const VideogamesItem: React.FC<Props> = (props) => {
 
-    const { footballShirt } = props;
+    const { videogame } = props;
 
     return (
-        <Card sx={{ maxWidth: 650 }} key={footballShirt.id} className="footballshirt-item">
-            <CardMedia component="img" height="200" src={`../../assets/footballshirts/${footballShirt.picURL}`} alt={footballShirt.title}
+        <Card sx={{ maxWidth: 650 }} key={videogame.id} className="videogames-item">
+            <CardMedia component="img" height="200" src={`../../assets/videogames/${videogame.picURL}`} alt={videogame.title}
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    {footballShirt.title}
+                    {videogame.title}
                 </Typography>
             </CardContent>
         </Card>

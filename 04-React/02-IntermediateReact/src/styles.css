@@ -8,11 +8,16 @@ body {
     padding: 10px;
 }
 
-.footballshirts-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+/* FOOTBALL SHIRTS & VIDEOGAMES*/
+
+.footballshirts-wrapper,
+.videogames-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 45vh;
+    width: 100vw;
+    gap: 2%;
+    margin-top: 2%;
 }
 
 @media (max-width: 700px) {
