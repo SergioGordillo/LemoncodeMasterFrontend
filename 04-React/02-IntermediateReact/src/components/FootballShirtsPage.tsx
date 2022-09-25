@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 import { getFootballShirts } from "../api/getData";
+import { ItemInfoEntity } from "../model/model";
 
 export const FootballShirtsPage: React.FC = () => {
 
-    const footballshirts = console.log(getFootballShirts());
+    const [footballShirts, setFootballShirts] = useState<ItemInfoEntity[]>([]);
+
+    useEffect(() => {
+        getFootballShirts()
+            .then((data) => {
+                console.log(data);
+                setFootballShirts(data);
+            }
+            );
+    }, [])
 
     return (
         <>

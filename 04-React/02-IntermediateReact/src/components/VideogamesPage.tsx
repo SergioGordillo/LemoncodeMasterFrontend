@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { getVideogames } from "../api/getData";
+import { ItemInfoEntity } from "../model/model";
 
 export const VideogamesPage: React.FC = () => {
 
-    console.log(getVideogames());
+    const [videogames, setVideogames] = useState<ItemInfoEntity[]>([]);
+
+    useEffect(() => {
+        getVideogames()
+            .then((data) => {
+                console.log(data);
+                setVideogames(data);
+            }
+            );
+    }, [])
 
     return (
         <>
