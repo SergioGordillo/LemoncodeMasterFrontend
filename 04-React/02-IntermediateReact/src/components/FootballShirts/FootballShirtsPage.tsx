@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-
 import { getFootballShirts } from "../../api/getData";
 import { ItemInfoEntity } from "../../model/model";
 import { FootballShirtItem } from "./FootballShirtItem";

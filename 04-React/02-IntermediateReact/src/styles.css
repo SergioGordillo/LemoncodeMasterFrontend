@@ -8,6 +8,12 @@ body {
     padding: 10px;
 }
 
+/* WRAPPER MAIN SCREEN */
+
+.wrapper-main-screen {
+    max-width: 75vw;
+}
+
 /* FOOTBALL SHIRTS & VIDEOGAMES*/
 
 .footballshirts-wrapper,
@@ -15,7 +21,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 45vh;
-    width: 100vw;
+    max-width: 75vw;
     gap: 2%;
     margin-top: 2%;
 }
