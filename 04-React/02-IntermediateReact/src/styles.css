@@ -11,7 +11,23 @@ body {
 /* WRAPPER MAIN SCREEN */
 
 .wrapper-main-screen {
-    max-width: 75vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* LINKS WRAPPER */
+
+.links-wrapper {
+    display: block;
+    width: 100vw;
+}
+
+/* TITLE WRAPPER */
+
+.title-wrapper {
+    display: block;
+    width: 100vw;
 }
 
 /* FOOTBALL SHIRTS & VIDEOGAMES*/

@@ -20,9 +20,13 @@ export const VideogamesPage: React.FC = () => {
 
     return (
         <>
-            <Link to="/" className="navbar">Football Shirts</Link>
-            <Link to="/videogames" className="navbar">Videogames</Link>
-            <h2>Hello from Videogames Page</h2>
+            <div className="links-wrapper">
+                <Link to="/" className="navbar">Football Shirts</Link>
+                <Link to="/videogames" className="navbar">Videogames</Link>
+            </div>
+            <div className="title-wrapper">
+                <h2>Hello from Football Shirts Page</h2>
+            </div>
             <div className="videogames-wrapper">
                 {videogames.map((videogame) => (
                     <VideogamesItem key={videogame.id} videogame={videogame} />

@@ -2,10 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Divider from '@mui/material/Divider';
+import Link from "@mui/material/Link/Link";
 
 import { FootballShirtsPage } from "../components/FootballShirts/FootballShirtsPage";
 import { VideogamesPage } from "../components/Videogames/VideogamesPage";
 import { Cart } from "../layout/Cart";
+
 
 export const App = () => {
     return (
@@ -18,10 +20,9 @@ export const App = () => {
                         <Route path="/cart" element={<Cart />} />
                     </Routes>
                 </Router>
+                <Divider orientation="vertical" variant="middle" flexItem />
+                <Cart />
             </div>
-
-            <Divider orientation="vertical" variant="middle" flexItem />
-            <Cart />
         </>
     );
 };
