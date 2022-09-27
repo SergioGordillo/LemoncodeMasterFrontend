@@ -38,7 +38,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 45vh;
     max-width: 80vw;
-    width: 75vw;
+    width: 65vw;
     gap: 2%;
     margin-top: 2%;
 }
