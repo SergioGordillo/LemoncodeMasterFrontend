@@ -9,8 +9,6 @@ import { FootballShirtsPage } from "../components/FootballShirts/FootballShirtsP
 import { VideogamesPage } from "../components/Videogames/VideogamesPage";
 import { Cart } from "../layout/Cart";
 
-import useWindowDimensions from "../common-app/hooks/useWindowDimensions";
-
 
 const BoxSX = (isDesktop: boolean) => ({
     display: "flex",
@@ -19,12 +17,8 @@ const BoxSX = (isDesktop: boolean) => ({
 });
 
 export const App = () => {
-    const { width } = useWindowDimensions();
     const isDesktop = useMediaQuery("(min-width:1110px)");
     const orientation = isDesktop ? "vertical" : "horizontal";
-    console.log("width", width);
-
-
 
     return (
         <>

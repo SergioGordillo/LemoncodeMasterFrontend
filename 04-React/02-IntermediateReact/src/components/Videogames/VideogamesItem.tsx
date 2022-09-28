@@ -1,8 +1,12 @@
 import React from "react";
 
 import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from "@mui/material/CardMedia/CardMedia";
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
 
 import { ItemInfoEntity } from "../../model/model";
@@ -24,6 +28,11 @@ export const VideogamesItem: React.FC<Props> = (props) => {
                     {videogame.title}
                 </Typography>
             </CardContent>
+            <CardActions>
+                <FormGroup>
+                    <FormControlLabel control={<Checkbox />} label="Buy" />
+                </FormGroup>
+            </CardActions>
         </Card>
     );
 };
