@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 import { getVideogames } from "../../api/index";
 import { ItemInfoEntity } from "../../model/ItemInfoEntity/index";
+import { mapItemInfoEntityFromAPIModelToVM } from "../../api/footballShirtFromAPIMToVM";
 import { VideogamesItem } from "./VideogamesItem";
 
 export const VideogamesPage: React.FC = () => {
@@ -12,8 +14,9 @@ export const VideogamesPage: React.FC = () => {
     useEffect(() => {
         getVideogames()
             .then((data) => {
-                console.log(data);
-                setVideogames(data);
+                const videogamesVM = mapItemInfoEntityFromAPIModelToVM(data);
+                console.log("videogamesVM", videogamesVM);
+                setVideogames(videogamesVM);
             }
             );
     }, [])

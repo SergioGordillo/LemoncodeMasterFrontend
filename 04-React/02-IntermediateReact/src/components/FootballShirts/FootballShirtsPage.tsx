@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 import { getFootballShirts } from "../../api/index";
 import { ItemInfoEntity } from "../../model/ItemInfoEntity/index";
 import { FootballShirtItem } from "./FootballShirtItem";
+import { mapItemInfoEntityFromAPIModelToVM } from "../../api/footballShirtFromAPIMToVM";
 
 export const FootballShirtsPage: React.FC = () => {
 
@@ -12,8 +14,9 @@ export const FootballShirtsPage: React.FC = () => {
     useEffect(() => {
         getFootballShirts()
             .then((data) => {
-                console.log(data);
-                setFootballShirts(data);
+                const footballShirtsVM = mapItemInfoEntityFromAPIModelToVM(data);
+                console.log("footballShirtsVM", footballShirtsVM);
+                setFootballShirts(footballShirtsVM);
             }
             );
     }, [])
