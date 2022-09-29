@@ -20,7 +20,7 @@ export const VideogamesItem: React.FC<Props> = (props) => {
     const { videogame } = props;
 
     return (
-        <Card sx={{ maxWidth: 650 }} key={videogame.id} className="videogames-item">
+        <Card sx={{ maxWidth: 650, marginTop: 10 }} key={videogame.id} className="videogames-item">
             <CardMedia component="img" height="200" src={`../../assets/videogames/${videogame.picURL}`} alt={videogame.title}
             />
             <CardContent>

@@ -17,8 +17,9 @@ const BoxSX = (isDesktop: boolean) => ({
 });
 
 export const App = () => {
-    const isDesktop = useMediaQuery("(min-width:1110px)");
+    const isDesktop = useMediaQuery("(min-width: 1200px)");
     const orientation = isDesktop ? "vertical" : "horizontal";
+
 
     return (
         <>
