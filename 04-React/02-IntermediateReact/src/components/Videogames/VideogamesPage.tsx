@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { getVideogames } from "../../api/getData";
-import { ItemInfoEntity } from "../../model/model";
+import { getVideogames } from "../../api/index";
+import { ItemInfoEntity } from "../../model/ItemInfoEntity/index";
 import { VideogamesItem } from "./VideogamesItem";
 
 export const VideogamesPage: React.FC = () => {

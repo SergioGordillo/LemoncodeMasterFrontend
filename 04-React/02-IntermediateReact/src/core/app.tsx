@@ -19,6 +19,9 @@ const BoxSX = (isDesktop: boolean) => ({
 export const App = () => {
     const isDesktop = useMediaQuery("(min-width: 1200px)");
     const orientation = isDesktop ? "vertical" : "horizontal";
+    const MyContext = React.createContext({
+        //Antes de hacer esto tengo que crearme un mapper y pasar del APIModel al ViewModel
+    });
 
 
     return (

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { getFootballShirts } from "../../api/getData";
-import { ItemInfoEntity } from "../../model/model";
+import { getFootballShirts } from "../../api/index";
+import { ItemInfoEntity } from "../../model/ItemInfoEntity/index";
 import { FootballShirtItem } from "./FootballShirtItem";
 
 export const FootballShirtsPage: React.FC = () => {

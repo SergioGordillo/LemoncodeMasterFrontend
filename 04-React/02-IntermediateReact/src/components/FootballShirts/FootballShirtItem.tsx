@@ -9,7 +9,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
 
-import { ItemInfoEntity } from "../../model/model";
+import { ItemInfoEntity } from "../../model/ItemInfoEntity/index";
 
 interface Props {
     footballShirt: ItemInfoEntity;

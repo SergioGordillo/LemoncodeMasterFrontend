@@ -10,8 +10,8 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Tooltip from '@mui/material/Tooltip';
 
-import { getVideogames } from "../api/getData";
-import { ItemInfoEntity } from "../model/model";
+import { getVideogames } from "../api/index";
+import { ItemInfoEntity } from "../model/ItemInfoEntity/index";
 
 export const Cart: React.FC = () => {
 
