@@ -28,6 +28,7 @@ body {
 .title-wrapper {
     display: block;
     width: 100vw;
+    margin-bottom: 16px;
 }
 
 /* FOOTBALL SHIRTS & VIDEOGAMES*/
@@ -36,11 +37,11 @@ body {
 .videogames-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 45vh;
+    height: 55vh;
     max-width: 80vw;
     width: 65vw;
     gap: 2%;
-    margin-top: 2%;
+    margin-top: -4%;
 }
 
 @media (max-width: 1200px) {
