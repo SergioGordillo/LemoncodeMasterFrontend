@@ -5,10 +5,10 @@ export const ProductsContext = React.createContext<any>([]);
 
 export const ProductsContextProvider = props => {
 
-    const [selected, setSelected] = useState<any>([]);
+    const [product, setProduct] = useState<ItemInfoEntityVM[]>([]);
 
     return (
-        <ProductsContext.Provider value={{ selected, setSelected }}>
+        <ProductsContext.Provider value={{ product, setProduct }}>
             {props.children}
         </ProductsContext.Provider>
     );

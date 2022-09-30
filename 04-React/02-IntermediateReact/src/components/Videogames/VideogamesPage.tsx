@@ -15,7 +15,6 @@ export const VideogamesPage: React.FC = () => {
         getVideogames()
             .then((data) => {
                 const videogamesVM = mapItemInfoEntityFromAPIModelToVM(data);
-                console.log("videogamesVM", videogamesVM);
                 setVideogames(videogamesVM);
             }
             );

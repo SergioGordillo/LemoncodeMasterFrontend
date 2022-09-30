@@ -20,7 +20,6 @@ export const Cart: React.FC = () => {
     useEffect(() => {
         getVideogames()
             .then((data) => {
-                console.log(data);
                 setVideogames(data);
             }
             );

@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 
 
 import { getFootballShirts } from "../../api/index";
-import { ItemInfoEntity } from "../../model/ItemInfoEntity/index";
+import { ItemInfoEntityVM } from '../../model/ItemInfoEntity/index';
 import { FootballShirtItem } from "./FootballShirtItem";
 import { mapItemInfoEntityFromAPIModelToVM } from "../../api/footballShirtFromAPIMToVM";
 
+
 export const FootballShirtsPage: React.FC = () => {
 
-    const [footballShirts, setFootballShirts] = useState<ItemInfoEntity[]>([]);
+    const [footballShirts, setFootballShirts] = useState<ItemInfoEntityVM[]>([]);
 
     useEffect(() => {
         getFootballShirts()
             .then((data) => {
                 const footballShirtsVM = mapItemInfoEntityFromAPIModelToVM(data);
-                console.log("footballShirtsVM", footballShirtsVM);
                 setFootballShirts(footballShirtsVM);
             }
             );

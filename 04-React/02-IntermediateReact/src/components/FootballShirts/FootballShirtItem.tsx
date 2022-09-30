@@ -9,11 +9,11 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
 
-import { ItemInfoEntity } from "../../model/ItemInfoEntity/index";
+import { ItemInfoEntityVM } from '../../model/ItemInfoEntity/index';
 import { ProductsContext } from "../../core/ProductsContextProvider";
 
 interface Props {
-    footballShirt: ItemInfoEntity;
+    footballShirt: ItemInfoEntityVM;
 }
 
 export const FootballShirtItem: React.FC<Props> = (props) => {
@@ -21,8 +21,13 @@ export const FootballShirtItem: React.FC<Props> = (props) => {
     const { footballShirt } = props;
     const myFootballShirts = useContext(ProductsContext);
 
-    const addToCart = (e) => {
-        console.log("Me clicko", e);
+    const addToCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, footballShirt: ItemInfoEntityVM) => {
+        if (myFootballShirts.includes(footballShirt)) {
+            myFootballShirts.setProduct(null);
+        } else {
+            myFootballShirts.setProduct(...myFootballShirts, footballShirt);
+        }
+        console.log("myFootballShirts", myFootballShirts);
     }
 
     return (
@@ -36,7 +41,7 @@ export const FootballShirtItem: React.FC<Props> = (props) => {
             </CardContent>
             <CardActions>
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox onClick={addToCart} />} label="Buy" />
+                    <FormControlLabel control={<Checkbox onClick={(e) => addToCart(e, footballShirt)} />} label="Buy" />
                 </FormGroup>
             </CardActions>
         </Card>
