@@ -45,8 +45,19 @@ body {
 
 @media (max-width: 1200px) {
     .footballshirts-wrapper {
-        display: flex;
-        flex-direction: column;
+        width: 800px;
         margin-top: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .footballshirts-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footballshirts-wrapper {
+        grid-template-columns: 1fr;
     }
 }
