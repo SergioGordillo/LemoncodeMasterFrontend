@@ -8,6 +8,8 @@ import { useMediaQuery } from "@mui/material";
 import { FootballShirtsPage } from "../components/FootballShirts/FootballShirtsPage";
 import { VideogamesPage } from "../components/Videogames/VideogamesPage";
 import { Cart } from "../layout/Cart";
+import { ItemInfoEntityVM } from '../model/ItemInfoEntity/index';
+import { ProductsContextProvider } from './ProductsContextProvider';
 
 
 const BoxSX = (isDesktop: boolean) => ({
@@ -19,24 +21,22 @@ const BoxSX = (isDesktop: boolean) => ({
 export const App = () => {
     const isDesktop = useMediaQuery("(min-width: 1200px)");
     const orientation = isDesktop ? "vertical" : "horizontal";
-    const MyContext = React.createContext({
-        //Antes de hacer esto tengo que crearme un mapper y pasar del APIModel al ViewModel
-    });
-
 
     return (
         <>
-            <Box className="wrapper-main-screen" sx={BoxSX(isDesktop)}>
-                <Router>
-                    <Routes>
-                        <Route path="/" element={<FootballShirtsPage />} />
-                        <Route path="/videogames" element={<VideogamesPage />} />
-                        <Route path="/cart" element={<Cart />} />
-                    </Routes>
-                </Router>
-                <Divider orientation={orientation} variant="middle" flexItem sx={{ borderColor: "#A5A09F", padding: "5px", borderRightWidth: "medium" }} />
-                <Cart />
-            </Box>
+            <ProductsContextProvider>
+                <Box className="wrapper-main-screen" sx={BoxSX(isDesktop)}>
+                    <Router>
+                        <Routes>
+                            <Route path="/" element={<FootballShirtsPage />} />
+                            <Route path="/videogames" element={<VideogamesPage />} />
+                            <Route path="/cart" element={<Cart />} />
+                        </Routes>
+                    </Router>
+                    <Divider orientation={orientation} variant="middle" flexItem sx={{ borderColor: "#A5A09F", padding: "5px", borderRightWidth: "medium" }} />
+                    <Cart />
+                </Box>
+            </ProductsContextProvider>
         </>
     );
 };
