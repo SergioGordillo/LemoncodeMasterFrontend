@@ -19,7 +19,7 @@ export const ProductsContextProvider = props => {
         }
     }
 
-    const removeFromCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, footballShirt?: ItemInfoEntityVM, videogame?: ItemInfoEntityVM) => {
+    const removeFromCart = (product: ItemInfoEntityVM[], footballShirt?: ItemInfoEntityVM[], videogame?: ItemInfoEntityVM[]): void => {
         if (product.includes(footballShirt || videogame)) {
             setProduct(null);
         }
