@@ -17,7 +17,7 @@ interface HighestMark {
 }
 
 interface AverageMark {
-    highestMark: number,
+    averageMark: number,
 }
 
 interface StudentsStatistics {
@@ -43,20 +43,21 @@ const students : Students[] = [
     return names;
   }
 
-  function getAverageMark(students:Students[]):AverageMark {
+  function getAverageMark(students:Students[]):any {
     const averageMark : any[] = [];
-    students.forEach(student => {
-        const totalMarks = student.califications.reduce((total, actual) => {
+    const totalMarks = students.forEach(student => {
+        student.califications.reduce((total, actual) => {
             return total + actual;
         }, 0);
-        const numberOfMarks = student.califications.length;
-        const averageMark = totalMarks/numberOfMarks;
-        return averageMark;
+        // const numberOfMarks = student.califications.length;
+        // const averageMark = totalMarks/numberOfMarks;
+        // return averageMark;
     });
-    return 
+     return totalMarks;
   }
 
   console.log("nombres", getNames(students));
+  console.log("media", getAverageMark(students));
   
  
     // Tengo que sacar el name por un lado (que sería un bucle) y luego hacer otro por las califications para ir haciendo los cálculos
