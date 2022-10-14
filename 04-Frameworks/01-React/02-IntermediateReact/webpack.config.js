@@ -15,6 +15,7 @@ module.exports = {
     output: {
         filename: "[name].[chunkhash].js",
         publicPath: "/",
+        assetModuleFilename: "images/[name].[ext]"
     },
     devServer: {
         historyApiFallback: true,

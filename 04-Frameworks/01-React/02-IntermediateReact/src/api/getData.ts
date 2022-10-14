@@ -1,4 +1,4 @@
-import { ItemInfoEntity } from '../model/ItemInfoEntity/index';
+import { ItemInfoEntity } from '../model/ItemInfoEntity';
 import { footballShirts } from "../database/footballshirts";
 import { videogames } from "../database/videogames";
 

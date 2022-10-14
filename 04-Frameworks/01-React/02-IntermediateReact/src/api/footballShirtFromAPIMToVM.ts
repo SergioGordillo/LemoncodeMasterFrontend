@@ -1,5 +1,4 @@
-import { ItemInfoEntity } from "../model/ItemInfoEntity/index";
-import { ItemInfoEntityVM } from "../model/ItemInfoEntity/index";
+import { ItemInfoEntity, ItemInfoEntityVM } from "../model/ItemInfoEntity";
 
 export const mapItemInfoEntityFromAPIModelToVM = (data: ItemInfoEntity[]): ItemInfoEntityVM[] => {
     return data.map((data) => {
