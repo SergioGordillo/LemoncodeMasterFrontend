@@ -3,22 +3,22 @@
 //Crear dos entidades, una para los datos de entrada y otra para los datos de salida
 //Puedes usar la función Number.prototype.toPrecision(3) para reducir el número de decimales de la media de calificaciones a tres números.
 
-interface Students {
+interface Student {
     name: string,
     califications: number[]
 }
 
-interface NameStudent {
-    name: string
-}
+// interface NameStudent {
+//     name: string
+// }
 
-interface HighestMark {
-    highestMark: number,
-}
+// interface HighestMark {
+//     highestMark: number,
+// }
 
-interface AverageMark {
-    averageMark: number,
-}
+// interface AverageMark {
+//     averageMark: number,
+// }
 
 interface StudentsStatistics {
     name: string,
@@ -26,7 +26,7 @@ interface StudentsStatistics {
     averageMark: number
 }
 
-const students : Students[] = [
+const students : Student[] = [
     { name: "Juan", califications: [1.56, 2.13, 7.53, 9.71, 2.67, 2.43, 2.86, 9.42, 8.08, 7.34] },
     { name: "Álvaro", califications: [4.49, 1.52, 7.0, 8.3, 8.01, 6.45, 3.72, 3.27, 6.99, 6.01] },
     { name: "María", califications: [2.99, 7.33, 1.14, 3.26, 0.98, 2.94, 4.99, 4.51, 1.8, 9.3] },
@@ -34,16 +34,25 @@ const students : Students[] = [
     { name: "Mónica", califications: [9.72, 6.07, 1.11, 4.72, 0.04, 1.56, 0.66, 3.87, 6.97, 9.48] },
   ];
 
-  function getNames(students:Students[]):NameStudent[] {
-    const names : any[] = [];
-    students.forEach(student => {
-        const name = student.name;
-        names.push(name);
-    });
-    return names;
-  }
 
-  function getAverageMark(students:Students[]):any {
+  const summarizeClassRoom = (students: Student[]) : StudentsStatistics  => {
+    //Esto es un array, parece claro que tengo que iterar por él con un map, y trabajar dentro de la función de callback
+    //Hago destructuring y me guardo nombre en una variable y califications en otra
+    //Para sacar el Max, con un bucle for y no sé si hay algún método que ya me saca de un array de nº el número mayor del tirón (aquí si no hay nada que me lo haga directamente, igual, función auxiliar)
+    //Para sacar la media, no sé si hay una función que me lo haga directamente pero si no lo más limpio sería una función auxiliar
+    return;
+  };
+
+//   function getNames(students:Student[]):NameStudent[] {
+//     const names : any[] = [];
+//     students.forEach(student => {
+//         const name = student.name;
+//         names.push(name);
+//     });
+//     return names;
+//   }
+
+  function getAverageMark(students:Student[]):any {
     const averageMark : any[] = [];
     const totalMarks = students.forEach(student => {
         student.califications.reduce((total, actual) => {
@@ -56,7 +65,7 @@ const students : Students[] = [
      return totalMarks;
   }
 
-  console.log("nombres", getNames(students));
+//   console.log("nombres", getNames(students));
   console.log("media", getAverageMark(students));
   
  
