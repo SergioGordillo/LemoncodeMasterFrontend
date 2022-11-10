@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from '../app-routing.module';
+import { PodsRoutingModule } from './pods.routing';
+
 import { AboutComponent } from './about/about.component';
 import { CrudComponent } from './crud/crud.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PagesComponent } from './pages/pages.component';
-import { AppRoutingModule } from '../app-routing.module';
+
 
 
 
@@ -33,12 +36,14 @@ import { AppRoutingModule } from '../app-routing.module';
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    PagesComponent
+    PagesComponent,
+    PodsRoutingModule
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    PodsRoutingModule
   ],
   providers: [],
 })

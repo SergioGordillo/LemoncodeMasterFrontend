@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'pages', component: PagesComponent},
+  {path: 'pages', loadChildren: () => import('./pods/pods.module').then(m => m.PodsModule)},
+  {path: '**', component: HomeComponent},
 ];
 
 @NgModule({
