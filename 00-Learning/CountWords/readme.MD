@@ -1,0 +1,2 @@
+Do a function that receives a string. It has to be able to determine if a word is short o long (more than 6 letters or less than 6 letters).
+If it is a short word, I want to a variable that sums all the letters of the short words I have counted.
