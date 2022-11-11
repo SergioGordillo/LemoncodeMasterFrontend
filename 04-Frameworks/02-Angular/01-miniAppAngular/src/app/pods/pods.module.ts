@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from '../app-routing.module';
 import { PodsRoutingModule } from './pods.routing';
 
 import { AboutComponent } from './about/about.component';
@@ -28,21 +25,18 @@ import { PagesComponent } from './pages/pages.component';
     ProfileComponent,
     PagesComponent
   ],
-  exports: [
-    AboutComponent,
-    CrudComponent,
-    DashboardComponent,
-    GalleryComponent,
-    HomeComponent,
-    LoginComponent,
-    ProfileComponent,
-    PagesComponent,
-    PodsRoutingModule
-  ],
+  // exports: [
+  //   AboutComponent,
+  //   CrudComponent,
+  //   DashboardComponent,
+  //   GalleryComponent,
+  //   HomeComponent,
+  //   LoginComponent,
+  //   ProfileComponent,
+  //   PagesComponent,
+  //   PodsRoutingModule
+  // ],
   imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     PodsRoutingModule
   ],
   providers: [],

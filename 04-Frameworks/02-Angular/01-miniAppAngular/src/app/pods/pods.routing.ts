@@ -10,8 +10,9 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
     path: '',
+    component: PagesComponent,
     children: [
-      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'gallery', component: GalleryComponent },
       { path: 'crud', component: CrudComponent },
       { path: 'profile', component: ProfileComponent },

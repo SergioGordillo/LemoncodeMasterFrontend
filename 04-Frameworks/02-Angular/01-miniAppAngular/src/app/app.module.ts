@@ -4,25 +4,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PodsModule } from './pods/pods.module';
+import { LayoutModule } from './layout/layout.module';
 
 import { AppComponent } from './app.component';
-import { PublicHeaderComponent } from './layout/public-header/public-header.component';
-import { PrivateHeaderComponent } from './layout/private-header/private-header.component';
-import { FooterComponent } from './layout/footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PublicHeaderComponent,
-    PrivateHeaderComponent,
-    FooterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    PodsModule
+    PodsModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
