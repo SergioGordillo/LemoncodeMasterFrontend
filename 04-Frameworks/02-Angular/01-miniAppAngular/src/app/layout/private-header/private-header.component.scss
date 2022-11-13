@@ -1,0 +1,21 @@
+img{
+  height: 5vh;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  margin-right: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}

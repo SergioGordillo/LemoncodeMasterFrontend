@@ -8,8 +8,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { ProfileComponent } from './profile/profile.component';
 import { PagesComponent } from './pages/pages.component';
+
 
 
 
@@ -25,19 +28,9 @@ import { PagesComponent } from './pages/pages.component';
     ProfileComponent,
     PagesComponent
   ],
-  // exports: [
-  //   AboutComponent,
-  //   CrudComponent,
-  //   DashboardComponent,
-  //   GalleryComponent,
-  //   HomeComponent,
-  //   LoginComponent,
-  //   ProfileComponent,
-  //   PagesComponent,
-  //   PodsRoutingModule
-  // ],
   imports: [
-    PodsRoutingModule
+    PodsRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
 })

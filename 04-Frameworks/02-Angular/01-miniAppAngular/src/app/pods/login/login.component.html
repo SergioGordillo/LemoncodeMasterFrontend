@@ -1,1 +1,25 @@
-<p>login works!</p>
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
+  <span> Login </span>
+
+  <div>
+    <span>Username</span>
+    <input
+      type="text"
+      formControlName="username"
+      placeholder="Write your username"
+    />
+    <span class="focus-input100"></span>
+  </div>
+
+  <div>
+    <span>Password</span>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Write your password"
+    />
+  </div>
+  <button class="login100-form-btn" type="submit" [disabled]="myForm.invalid">
+    Login
+  </button>
+</form>
