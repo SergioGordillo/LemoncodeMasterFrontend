@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { PrivateHeaderComponent } from './private-header/private-header.component';
 import { PublicHeaderComponent } from './public-header/public-header.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PublicHeaderComponent } from './public-header/public-header.component';
     PublicHeaderComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
   ],
