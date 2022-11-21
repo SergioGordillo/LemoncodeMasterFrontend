@@ -8,7 +8,14 @@
       formControlName="username"
       placeholder="Write your username"
     />
-    <span class="focus-input100"></span>
+    <span
+      class="form-text text-danger"
+      *ngIf="
+        myForm.controls.username.errors && myForm.controls.username.touched
+      "
+    >
+      Error message
+    </span>
   </div>
 
   <div>

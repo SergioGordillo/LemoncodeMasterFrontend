@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +8,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
+  // myForm: FormGroup = new FormGroup({
+  //   "username" : new FormControl(),
+  //   "password": new FormControl()
+  // })
+
+  constructor(private fb: FormBuilder) { }
+
   myForm: FormGroup = this.fb.group({
     username: ['student', [Validators.required, Validators.minLength(5)]],
     password: ['12345', [Validators.required, Validators.minLength(5)]]
   })
 
-  constructor(private fb: FormBuilder,) { }
+
 
   login () {
 
@@ -24,7 +31,9 @@ export class LoginComponent {
     } else {
       console.log("error");
     }
+  }
 
+  createForm(){
 
   }
 }
