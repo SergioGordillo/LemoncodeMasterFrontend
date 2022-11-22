@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 
+import {
+  MatFormFieldModule,
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+} from '@angular/material/form-field';
+
 import { PodsRoutingModule } from './pods.routing';
 
 import { AboutComponent } from './about/about.component';
@@ -13,10 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { PagesComponent } from './pages/pages.component';
 
-
-
-
-
 @NgModule({
   declarations: [
     AboutComponent,
@@ -26,12 +27,14 @@ import { PagesComponent } from './pages/pages.component';
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    PagesComponent
+    PagesComponent,
   ],
-  imports: [
-    PodsRoutingModule,
-    ReactiveFormsModule
+  imports: [MatFormFieldModule, PodsRoutingModule, ReactiveFormsModule],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline' },
+    },
   ],
-  providers: [],
 })
-export class PodsModule { }
+export class PodsModule {}

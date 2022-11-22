@@ -1,6 +1,14 @@
 <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
   <span> Login </span>
 
+  <!-- <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Write your username</mat-label>
+      <input matInput placeholder="Username" formControlName="username" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div> -->
+
   <div>
     <span>Username</span>
     <input
@@ -8,14 +16,7 @@
       formControlName="username"
       placeholder="Write your username"
     />
-    <span
-      class="form-text text-danger"
-      *ngIf="
-        myForm.controls.username.errors && myForm.controls.username.touched
-      "
-    >
-      Error message
-    </span>
+    <span class="text-danger" *ngIf="isValid()"> Error message </span>
   </div>
 
   <div>
