@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 
+import { MatCardModule } from '@angular/material/card';
 import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { PodsRoutingModule } from './pods.routing';
 
@@ -17,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ProfileComponent } from './profile/profile.component';
 import { PagesComponent } from './pages/pages.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,14 @@ import { PagesComponent } from './pages/pages.component';
     ProfileComponent,
     PagesComponent,
   ],
-  imports: [MatFormFieldModule, PodsRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    PodsRoutingModule,
+    ReactiveFormsModule,
+  ],
   providers: [
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,

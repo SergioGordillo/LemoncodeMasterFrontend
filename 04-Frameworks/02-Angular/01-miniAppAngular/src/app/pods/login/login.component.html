@@ -1,32 +1,31 @@
 <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
-  <span> Login </span>
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
 
-  <!-- <div class="example-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Write your username</mat-label>
-      <input matInput placeholder="Username" formControlName="username" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-  </div> -->
-
-  <div>
-    <span>Username</span>
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
     <input
+      matInput
       type="text"
       formControlName="username"
       placeholder="Write your username"
     />
-    <span class="text-danger" *ngIf="isValid()"> Error message </span>
-  </div>
+  </mat-form-field>
 
-  <div>
-    <span>Password</span>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
     <input
-      type="password"
+      matInput
+      type="text"
       formControlName="password"
       placeholder="Write your password"
     />
-  </div>
+  </mat-form-field>
+
+  <!-- <span class="text-danger" *ngIf="isValid('username')"> Error message </span> -->
+
+  <span class="text-danger" *ngIf="isValid('password')"> Error message </span>
   <button class="login100-form-btn" type="submit" [disabled]="myForm.invalid">
     Login
   </button>
