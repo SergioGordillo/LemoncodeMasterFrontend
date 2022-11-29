@@ -1,32 +1,26 @@
 <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
-  <mat-card-header>
+  <mat-card-header class="mat-card-header-text">
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
 
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" class="mr-8">
     <mat-label>Username</mat-label>
-    <input
-      matInput
-      type="text"
-      formControlName="username"
-      placeholder="Write your username"
-    />
+    <input matInput type="text" formControlName="username" />
+    <mat-error *ngIf="isValid('username')"
+      >Username must have as a minimum 5 characters</mat-error
+    >
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" class="mr-8">
     <mat-label>Password</mat-label>
-    <input
-      matInput
-      type="text"
-      formControlName="password"
-      placeholder="Write your password"
-    />
+    <input matInput type="text" formControlName="password" />
+    <mat-error *ngIf="isValid('password')"
+      >Password must have as a minimum 5 characters</mat-error
+    >
   </mat-form-field>
 
-  <!-- <span class="text-danger" *ngIf="isValid('username')"> Error message </span> -->
-
-  <span class="text-danger" *ngIf="isValid('password')"> Error message </span>
-  <button class="login100-form-btn" type="submit" [disabled]="myForm.invalid">
-    Login
-  </button>
+  <button mat-raised-button type="submit">Login</button>
+  <mat-card *ngIf="correct === false" class="ml-8">
+    <mat-card-content>Username or password are incorrect</mat-card-content>
+  </mat-card>
 </form>

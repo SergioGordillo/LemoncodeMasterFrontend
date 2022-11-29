@@ -12,6 +12,9 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+
+  correct : boolean | undefined = undefined;
+
   constructor(private fb: FormBuilder) {}
 
   myForm: FormGroup = this.fb.group({
@@ -30,8 +33,10 @@ export class LoginComponent {
 
     if (username == 'student' && password == '12345') {
       console.log(this.myForm.value);
+      this.correct=true;
       this.myForm.reset();
     } else {
+      this.correct=false;
       console.log('error');
     }
   }

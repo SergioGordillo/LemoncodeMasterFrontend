@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {
   MatFormFieldModule,
@@ -34,6 +35,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
+    MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
