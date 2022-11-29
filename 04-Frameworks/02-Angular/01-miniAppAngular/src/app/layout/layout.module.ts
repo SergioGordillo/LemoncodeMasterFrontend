@@ -11,18 +11,10 @@ import { AppRoutingModule } from '../app-routing.module';
   declarations: [
     FooterComponent,
     PrivateHeaderComponent,
-    PublicHeaderComponent
+    PublicHeaderComponent,
   ],
-  exports: [
-    FooterComponent,
-    PrivateHeaderComponent,
-    PublicHeaderComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-  ],
+  exports: [FooterComponent, PrivateHeaderComponent, PublicHeaderComponent],
+  imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule],
   providers: [],
 })
-export class LayoutModule { }
+export class LayoutModule {}
