@@ -12,14 +12,16 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
-  correct : boolean | undefined = undefined;
+  correct: boolean | undefined = undefined;
 
   constructor(private fb: FormBuilder) {}
 
   myForm: FormGroup = this.fb.group({
-    username: ['student', [Validators.required, Validators.minLength(5)]],
-    password: ['12345', [Validators.required, Validators.minLength(5)]],
+    username: [
+      'master8@lemoncode.net',
+      [Validators.required, Validators.minLength(5), Validators.email],
+    ],
+    password: ['12345678', [Validators.required, Validators.minLength(5)]],
   });
 
   isValid(field: string) {
@@ -31,13 +33,15 @@ export class LoginComponent {
   login() {
     const { username, password } = this.myForm.value;
 
-    if (username == 'student' && password == '12345') {
+    if (username == 'master8@lemoncode.net' && password == '12345678') {
       console.log(this.myForm.value);
-      this.correct=true;
+      this.correct = true;
       this.myForm.reset();
     } else {
-      this.correct=false;
+      this.correct = false;
       console.log('error');
     }
   }
 }
+
+//TODO: use the service in the component and simplify my code
