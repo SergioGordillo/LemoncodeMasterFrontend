@@ -1,11 +1,12 @@
-<div class="wrapper">
-  <img src="../../../assets/logo.jpg" alt="logo">
-  <h1>The Pied Piper</h1>
-    <ul>
-      <li><a routerLink="/pages" >Pages</a></li>
-      <li><a routerLink="/pages/dashboard" >Dashboard</a></li>
-      <li><a routerLink="/pages/gallery" >Gallery</a></li>
-      <li><a routerLink="/pages/crud" >CRUD</a></li>
-      <li><a routerLink="/pages/profile" >Profile</a></li>
-    </ul>
+<div>
+  <mat-toolbar>
+    <img src="../../../assets/logo.jpg" alt="logo" />
+    <h1>The Pied Piper</h1>
+    <a mat-stroked-button routerLink="/pages">Pages</a>
+    <a mat-stroked-button routerLink="/pages/dashboard">Dashboard</a>
+    <a mat-stroked-button routerLink="/pages/gallery">Gallery</a>
+    <a mat-stroked-button routerLink="/pages/crud">CRUD</a>
+    <a mat-stroked-button routerLink="/pages/profile">Profile</a>
+    <a mat-stroked-button (click)="logout()">Logout</a>
+  </mat-toolbar>
 </div>
