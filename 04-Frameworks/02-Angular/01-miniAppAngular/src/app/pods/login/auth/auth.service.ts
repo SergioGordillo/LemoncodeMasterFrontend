@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   logout() {
-    this.router.navigate(['./']);
+    this.router.navigate(['./']); 
   }
 
   isLogged() {} //TODO: I need local storage persistence to implement this method
