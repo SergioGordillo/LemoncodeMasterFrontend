@@ -1,9 +1,13 @@
 import React from "react";
 
 export const MyDownloadPage: React.FC = () => {
-    return (
-        <>
-            <h2>Hello World</h2>
-        </>
-    );
+  const download = () => {
+    console.log("Hello World");
+  };
+
+  return (
+    <>
+      <button onClick={() => download()}>Download</button>
+    </>
+  );
 };
