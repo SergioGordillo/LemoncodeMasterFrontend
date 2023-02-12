@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { linkRoutes } from 'core/router';
 import { deleteCharacter } from './api';
 import { useCharacterCollection } from './character-collection.hook';
-import { HotelCharacterComponent } from './character-collection.component';
+import { CharacterCollectionComponent } from './character-collection.component';
 
 export const HotelCollectionContainer = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
