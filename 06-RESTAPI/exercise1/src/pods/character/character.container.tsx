@@ -15,6 +15,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   );
   // const [cities, setCities] = React.useState<Lookup[]>([]);
   const { id } = useParams<{ id: string }>();
+  const parsedId = parseInt(id);
   const navigate = useNavigate();
 
   // const handleLoadCityCollection = async () => {
@@ -23,7 +24,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   // };
 
   const handleLoadCharacter = async () => {
-    const apiCharacter = await api.getCharacter(id);
+    const apiCharacter = await api.getCharacter(parsedId);
     setCharacter(mapCharacterFromApiToVm(apiCharacter));
   };
 

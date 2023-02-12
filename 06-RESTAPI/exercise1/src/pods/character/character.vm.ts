@@ -8,8 +8,12 @@ export interface Character {
   image: string;
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 export const createEmptyCharacter = (): Character => ({
-  id: 1,
+  id: getRandomInt(10000),
   name: "",
   status: "",
   species: "",
@@ -17,3 +21,5 @@ export const createEmptyCharacter = (): Character => ({
   gender: "",
   image: ""
 });
+
+

@@ -2,7 +2,7 @@ import { Character } from './character.api-model';
 // import { Lookup } from 'common/models';
 import { mockCharacterCollection } from './character.mock-data';
 
-export const getCharacter = async (id: any): Promise<Character> => {
+export const getCharacter = async (id: number): Promise<Character> => {
   return mockCharacterCollection.find((c) => c.id === id);
 };
 
