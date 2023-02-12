@@ -5,7 +5,7 @@ import { deleteCharacter } from './api';
 import { useCharacterCollection } from './character-collection.hook';
 import { CharacterCollectionComponent } from './character-collection.component';
 
-export const HotelCollectionContainer = () => {
+export const CharacterCollectionContainer = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
   const navigate = useNavigate();
 
