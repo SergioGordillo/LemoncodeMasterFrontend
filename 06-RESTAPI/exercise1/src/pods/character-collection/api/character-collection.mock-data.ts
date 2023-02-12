@@ -1,13 +1,13 @@
-import { CharacterEntityApi } from './character-collection.api-model';
+import { CharacterEntityApi, Gender, Species, Status } from './character-collection.api-model';
 
 export const mockCharacterCollection: CharacterEntityApi[] = [
   {
     id: 1,
     name: 'Rick Sanchez',
-    status: 'Alive',
-    species: 'Human',
+    status: Status.Alive,
+    species: Species.Human,
     type: '',
-    gender: 'Male',
+    gender: Gender.Male,
     origin: {
       name: 'Earth (C-137)',
       url: 'https://rickandmortyapi.com/api/location/1',
@@ -76,10 +76,10 @@ export const mockCharacterCollection: CharacterEntityApi[] = [
   {
     id: 2,
     name: 'Morty Smith',
-    status: 'Alive',
-    species: 'Human',
+    status: Status.Alive,
+    species: Species.Human,
     type: '',
-    gender: 'Male',
+    gender: Gender.Male,
     origin: {
       name: 'unknown',
       url: '',

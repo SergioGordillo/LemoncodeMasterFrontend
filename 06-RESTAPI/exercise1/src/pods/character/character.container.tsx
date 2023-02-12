@@ -25,11 +25,13 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
 
   const handleLoadCharacter = async () => {
     const apiCharacter = await api.getCharacter(parsedId);
+    console.log('me intento renderizar');
     setCharacter(mapCharacterFromApiToVm(apiCharacter));
   };
 
   React.useEffect(() => {
     if (id) {
+      console.log('paso por aquí');
       handleLoadCharacter();
     }
   }, []);

@@ -14,12 +14,10 @@ function getRandomInt(max) {
 
 export const createEmptyCharacter = (): Character => ({
   id: getRandomInt(10000),
-  name: "",
-  status: "",
-  species: "",
-  type: "",
-  gender: "",
-  image: ""
+  name: '',
+  status: '',
+  species: '',
+  type: '',
+  gender: '',
+  image: '',
 });
-
-

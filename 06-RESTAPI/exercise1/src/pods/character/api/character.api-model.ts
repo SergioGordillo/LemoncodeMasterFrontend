@@ -1,16 +1,16 @@
 export interface Character {
   id: number;
   name: string;
-  status: string;
-  species: string;
+  status: Status;
+  species: Species;
   type: string;
-  gender: string;
+  gender: Gender;
   origin: Origin;
   location: Location;
   image: string;
   episode: string[];
   url: string;
-  created: any; //TODO: this has to be date, but it says string not assignable to Date type, improve it
+  created: string;
 }
 
 export interface Location {
@@ -21,4 +21,21 @@ export interface Location {
 export interface Origin {
   name: string;
   url: string;
+}
+
+export enum Gender {
+  Female = 'Female',
+  Male = 'Male',
+  Unknown = 'unknown',
+}
+
+export enum Species {
+  Alien = 'Alien',
+  Human = 'Human',
+}
+
+export enum Status {
+  Alive = 'Alive',
+  Dead = 'Dead',
+  Unknown = 'unknown',
 }
