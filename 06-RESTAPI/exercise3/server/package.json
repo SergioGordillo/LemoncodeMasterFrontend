@@ -1,0 +1,31 @@
+{
+  "name": "hotel-api",
+  "version": "1.0.0",
+  "description": "Hotel API",
+  "main": "index.js",
+  "scripts": {
+    "mock-server": "json-server --routes ./config/routes.json --watch mock-data/rickandmorty-data.json --middlewares ./config/character.middleware.js --no-delete-cascade"
+  },
+  "author": "Lemoncode",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/server": "^4.3.3",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "json-server": "^0.16.1",
+    "regenerator-runtime": "^0.13.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/plugin-proposal-optional-chaining": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/express": "^4.17.17",
+    "nodemon": "^2.0.20",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^4.1.2",
+    "typescript": "^4.9.5"
+  }
+}
