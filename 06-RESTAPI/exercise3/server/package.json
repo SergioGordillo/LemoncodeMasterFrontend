@@ -2,9 +2,9 @@
   "name": "hotel-api",
   "version": "1.0.0",
   "description": "Hotel API",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "mock-server": "json-server --routes ./config/routes.json --watch mock-data/rickandmorty-data.json --middlewares ./config/character.middleware.js --no-delete-cascade"
+    "mock-server": "json-server --routes ./config/routes.json --watch index.ts --middlewares ./config/character.middleware.js --no-delete-cascade"
   },
   "author": "Lemoncode",
   "license": "MIT",
