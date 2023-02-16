@@ -20,8 +20,6 @@ interface Props {
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
   const { character, onEdit, onDelete } = props;
 
-  console.log('id', character.id);
-
   return (
     <Card>
       <CardHeader title={character.name} subheader={character.status} />
