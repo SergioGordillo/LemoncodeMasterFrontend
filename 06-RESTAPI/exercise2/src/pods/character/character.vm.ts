@@ -6,7 +6,7 @@ export interface Character {
   type: string;
   gender: string;
   image: string;
-  bestSentences: string[];
+  bestSentences: string;
 }
 
 function getRandomInt(max) {
@@ -21,5 +21,5 @@ export const createEmptyCharacter = (): Character => ({
   type: '',
   gender: '',
   image: '',
-  bestSentences: [''],
+  bestSentences: '',
 });
