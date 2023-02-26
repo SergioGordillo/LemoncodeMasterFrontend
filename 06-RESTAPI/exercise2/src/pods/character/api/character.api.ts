@@ -4,7 +4,10 @@ import axios from 'axios';
 
 export const getCharacter = async (id: number): Promise<Character> => {
   const url = `http://localhost:3000/results/${id}`;
-  const { data } = await axios.get<Character>(url);
+  const { data } = await axios.get<Character>(url).catch((e) => {
+    return e;
+  });
+  console.log('data', data);
   return data;
 };
 
