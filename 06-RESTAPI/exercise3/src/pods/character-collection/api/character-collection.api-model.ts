@@ -1,4 +1,4 @@
-export interface Character {
+export interface EndpointCharacter {
   info: Info;
   results: CharacterEntityApi[];
 }
