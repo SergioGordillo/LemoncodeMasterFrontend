@@ -7,18 +7,16 @@ import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { CharacterEntityVm } from '../character-collection.vm';
 import * as classes from './character-card.styles';
 
 interface Props {
   character: CharacterEntityVm;
   onEdit: (id: number) => void;
-  onDelete: (id: number) => void;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
-  const { character, onEdit, onDelete } = props;
+  const { character, onEdit} = props;
 
   return (
     <Card>
@@ -38,9 +36,6 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
       <CardActions>
         <IconButton onClick={() => onEdit(character.id)}>
           <EditIcon />
-        </IconButton>
-        <IconButton onClick={() => onDelete(character.id)}>
-          <DeleteIcon />
         </IconButton>
       </CardActions>
     </Card>
