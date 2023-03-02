@@ -16,6 +16,9 @@ interface Props {
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character, onSave } = props;
+  console.log('characterhijo', character);
+  console.log('name', character.name);
+  console.log('status', character.status);
   const navigate = useNavigate();
 
   const handleGoBack = () => {

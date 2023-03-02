@@ -5,12 +5,9 @@ import request, { gql } from 'graphql-request';
 const url = 'https://rickandmortyapi.com/graphql';
 
 export const getCharacter = async (id: number): Promise<Character> => {
-  // const url = `https://rickandmortyapi.com/api/character/${id}`;
-  // const { data } = await axios.get<any>(url);
-  // return data;
   const query = gql`
-    query ($id: ID!) {
-      character(id: $id) {
+    query {
+      character(id: "${id}") {
         id
         name
         status
@@ -32,11 +29,7 @@ export const getCharacter = async (id: number): Promise<Character> => {
     }
   `;
 
-  const variables = {
-    id: '3',
-  };
-
-  const data = await request(url, query, variables);
+  const data = await request(url, query);
   console.log('data', data);
   return data;
 };
