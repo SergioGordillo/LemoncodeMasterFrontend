@@ -1,6 +1,7 @@
 import { Character } from './character.api-model';
 import axios from 'axios';
 import request, { gql } from 'graphql-request';
+import { graphQLClient } from 'core/api';
 
 const url = 'https://rickandmortyapi.com/graphql';
 
@@ -29,7 +30,8 @@ export const getCharacter = async (id: number): Promise<Character> => {
     }
   `;
 
-  const data = await request(url, query);
+  // const data = await graphQLClient.request(url, query);
+  const data = await request<Character>(url, query);
   console.log('data', data);
   return data;
 };
