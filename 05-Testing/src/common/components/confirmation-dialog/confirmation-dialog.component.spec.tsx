@@ -7,9 +7,9 @@ describe('common/DashboardComponent', () => {
   it('should be render as expected passing required properties', () => {
     // Arrange
     const props: confirmationDialogProps = {
-      isOpen: false,
-      onAccept: () => {},
-      onClose: () => {},
+      isOpen: true,
+      onAccept: jest.fn(),
+      onClose: jest.fn(),
       title: 'Eliminar proyecto',
       labels: {
         closeButton: 'Cancelar',
@@ -21,8 +21,10 @@ describe('common/DashboardComponent', () => {
     // Act
     // const { getByText } = render(<ConfirmationDialogComponent {...props} />);
 
-    const component = render(<ConfirmationDialogComponent {...props} />);
-    component.getByText('Eliminar Proyecto');
+    const { getByText } = render(<ConfirmationDialogComponent {...props} />);
+    const element = getByText(props.title);
+    expect(element).not.toBeNull();
+    expect(element.tagName).toEqual('H2');
 
     // Assert
     // const element = getByText('Eliminar Proyecto');
