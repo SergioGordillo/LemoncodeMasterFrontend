@@ -5,8 +5,6 @@ export const mapCharacterFromApiToVm = (
   character: apiModel.Character
 ): viewModel.Character => ({
   ...character,
-  // id: character.id,
-  // name: character.name
 });
 
 export const mapCharacterFromVmToApi = (character: viewModel.Character): apiModel.Character =>

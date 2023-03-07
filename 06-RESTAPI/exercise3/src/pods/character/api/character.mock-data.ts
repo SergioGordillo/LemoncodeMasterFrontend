@@ -1,5 +1,4 @@
 import { Character, Gender, Species, Status } from './character.api-model';
-// import { Lookup } from 'common/models';
 
 export const mockCharacterCollection: Character[] = [
   {
@@ -147,14 +146,3 @@ export const mockCharacterCollection: Character[] = [
     created: '2017-11-04T18:50:21.651Z',
   },
 ];
-
-// export const mockCities: Lookup[] = [
-//   {
-//     id: 'Seattle',
-//     name: 'Seattle',
-//   },
-//   {
-//     id: 'New York',
-//     name: 'New York',
-//   },
-// ];

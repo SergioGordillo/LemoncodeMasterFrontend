@@ -1,4 +1,4 @@
-import { request, gql } from 'graphql-request';
+import { gql } from 'graphql-request';
 import { graphQLClient } from 'core/api';
 
 import {
@@ -8,7 +8,10 @@ import {
 import { mockCharacterCollection } from './character-collection.mock-data';
 
 let characterCollection = [...mockCharacterCollection];
-const url = 'https://rickandmortyapi.com/graphql';
+
+interface CharacterCollectionRequest {
+  characters: EndpointCharacter;
+}
 
 export const getCharacterCollection = async (): Promise<
   CharacterEntityApi[]
@@ -45,7 +48,7 @@ export const getCharacterCollection = async (): Promise<
     }
   `;
 
-  const data = await request(url, query);
+  const data = await graphQLClient.request<CharacterCollectionRequest>(query);
   return data.characters.results;
 };
 

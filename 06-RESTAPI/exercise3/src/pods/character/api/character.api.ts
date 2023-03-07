@@ -1,9 +1,10 @@
 import { Character } from './character.api-model';
-import axios from 'axios';
-import request, { gql } from 'graphql-request';
+import { gql } from 'graphql-request';
 import { graphQLClient } from 'core/api';
 
-const url = 'https://rickandmortyapi.com/graphql';
+interface CharacterRequest {
+  character: Character;
+}
 
 export const getCharacter = async (id: number): Promise<Character> => {
   const query = gql`
@@ -30,10 +31,8 @@ export const getCharacter = async (id: number): Promise<Character> => {
     }
   `;
 
-  // const data = await graphQLClient.request(url, query);
-  const data = await request<Character>(url, query);
-  console.log('data', data);
-  return data;
+  const { character } = await graphQLClient.request<CharacterRequest>(query);
+  return character;
 };
 
 export const saveCharacter = async (character: Character): Promise<boolean> => {
