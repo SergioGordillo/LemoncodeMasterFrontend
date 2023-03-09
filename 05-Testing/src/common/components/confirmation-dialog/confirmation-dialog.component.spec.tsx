@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { ConfirmationDialogComponent } from './confirmation-dialog.component';
 import { confirmationDialogProps } from './confirmation-dialog.vm';
 
-describe('common/DashboardComponent', () => {
+describe('common/Components/ConfirmationDialog/confirmation-dialog.component.tsx', () => {
   it('The H2 with the text "Eliminar Proyecto" is rendered when the proper props are received', () => {
     // Arrange
     const props: confirmationDialogProps = {
