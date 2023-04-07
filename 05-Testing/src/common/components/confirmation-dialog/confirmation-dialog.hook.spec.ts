@@ -10,54 +10,54 @@ describe('common/Components/ConfirmationDialog/confirmation-dialog.hook.ts', () 
 
     // Act
     const { result } = renderHook(() => useConfirmationDialog());
-    console.log(result);
 
     // Assert
-    const defaultItemToDelete: Lookup = { id: '', name: '' };
+    const emptyLookup: Lookup = { id: '', name: '' };
     expect(result.current.isOpen).toBe(false);
-    expect(result.current.itemToDelete).toEqual(defaultItemToDelete);
+    expect(result.current.itemToDelete).toEqual(emptyLookup);
+  });
+
+  it('it opens the dialog with the correct item when onOpenDialog is called', () => {
+    //Arrange
+
+    //Act
+    const { result } = renderHook(() => useConfirmationDialog());
+    const item = { id: '123', name: 'Item 1' };
+    act(() => {
+      result.current.onOpenDialog(item);
+    });
+
+    //Assert
+    expect(result.current.isOpen).toBe(true);
+    expect(result.current.itemToDelete).toEqual(item);
+  });
+
+  it('it closes the dialog when onClose is called', () => {
+    //Arrange
+
+    //Act
+    const { result } = renderHook(() => useConfirmationDialog());
+    act(() => {
+      result.current.onClose();
+    });
+
+    //Assert
+    expect(result.current.isOpen).toBe(false);
+  });
+
+  it('it removes the item to delete when onAccept is accepted', () => {
+    //Arrange
+
+    //Act
+    const { result } = renderHook(() => useConfirmationDialog());
+    const item = { id: '123', name: 'Item 1' };
+    const emptyLookup: Lookup = { id: '', name: '' };
+    act(() => {
+      result.current.onOpenDialog(item);
+      result.current.onAccept();
+    });
+
+    //Assert
+    expect(result.current.itemToDelete).toEqual(emptyLookup);
   });
 });
-
-// describe('useConfirmationDialog', () => {
-//   it('returns the correct initial values', () => {
-//     const { result } = renderHook(() => useConfirmationDialog());
-
-//     expect(result.current.isOpen).toBe(false);
-//     expect(result.current.itemToDelete).toEqual({ id: '', name: '' });
-//   });
-
-//   it('opens the dialog with the correct item when onOpenDialog is called', () => {
-//     const { result } = renderHook(() => useConfirmationDialog());
-//     const item = { id: '123', name: 'Item 1' };
-
-//     act(() => {
-//       result.current.onOpenDialog(item);
-//     });
-
-//     expect(result.current.isOpen).toBe(true);
-//     expect(result.current.itemToDelete).toEqual(item);
-//   });
-
-//   it('closes the dialog when onClose is called', () => {
-//     const { result } = renderHook(() => useConfirmationDialog());
-
-//     act(() => {
-//       result.current.onClose();
-//     });
-
-//     expect(result.current.isOpen).toBe(false);
-//   });
-
-//   it('clears the itemToDelete state when onAccept is called', () => {
-//     const { result } = renderHook(() => useConfirmationDialog());
-//     const item = { id: '123', name: 'Item 1' };
-
-//     act(() => {
-//       result.current.onOpenDialog(item);
-//       result.current.onAccept();
-//     });
-
-//     expect(result.current.itemToDelete).toEqual({ id: '', name: '' });
-//   });
-// });
