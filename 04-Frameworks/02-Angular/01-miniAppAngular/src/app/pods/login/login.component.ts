@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +10,7 @@ import {
 export class LoginComponent {
   correct: boolean | undefined = undefined;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   myForm: FormGroup = this.fb.group({
     username: [
@@ -30,18 +26,18 @@ export class LoginComponent {
     );
   }
 
-  login() {
+  userIsCorrect() {
     const { username, password } = this.myForm.value;
 
     if (username == 'master8@lemoncode.net' && password == '12345678') {
       console.log(this.myForm.value);
       this.correct = true;
       this.myForm.reset();
+      localStorage.setItem(username, password);
+      this.router.navigate(['./pages']);
     } else {
       this.correct = false;
       console.log('error');
     }
   }
 }
-
-//TODO: use the service in the component and simplify my code

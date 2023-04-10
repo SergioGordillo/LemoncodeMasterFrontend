@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   username: string = '';
+  isLoggedIn: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -18,13 +19,23 @@ export class AuthService {
     }
   }
 
-  logout() {
-    this.router.navigate(['./']); 
+  logout(): void {
+    localStorage.removeItem('master8@lemoncode.net');
+    this.router.navigate(['./']);
   }
 
-  isLogged() {} //TODO: I need local storage persistence to implement this method
+  isLogged() {
+    if (localStorage.getItem('master8@lemoncode.net') !== null) {
+      this.isLoggedIn = true;
+      console.log('Me coge el token bien');
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   getUserName() {
+    //Además, tengo que modificar el getUsername que ahora mismo no lo estoy usando
     return this.username;
   }
 
