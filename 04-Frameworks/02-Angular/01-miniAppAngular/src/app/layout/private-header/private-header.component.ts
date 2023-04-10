@@ -12,6 +12,7 @@ export class PrivateHeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   logout() {
+    localStorage.removeItem('master8@lemoncode.net');
     this.router.navigate(['./']);
   }
 }

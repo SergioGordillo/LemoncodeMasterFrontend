@@ -1,5 +1,6 @@
-<!-- <app-public-header></app-public-header> -->
-<app-private-header></app-private-header>
+<app-public-header *ngIf="isLoggedIn == false"></app-public-header>
+<app-private-header *ngIf="isLoggedIn == true"></app-private-header>
+{{ isLoggedIn }}
 
 <!-- //TODO: Do conditional rendering for the header when I end up login implementation -->
 

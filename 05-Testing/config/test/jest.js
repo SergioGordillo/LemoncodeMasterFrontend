@@ -3,5 +3,6 @@ module.exports = {
   verbose: true,
   restoreMocks: true,
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/config/test/setup-after.ts']
+  setupFilesAfterEnv: ['<rootDir>/config/test/setup-after.ts'],
+  moduleDirectories: ['<rootDir>/src', 'node_modules'],
 };
