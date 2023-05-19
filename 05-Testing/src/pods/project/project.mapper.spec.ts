@@ -154,7 +154,7 @@ describe('mapper specs', () => {
 
   it('the mapper mapProjectFromApiToVm should create a new project when it receives an undefined input', () => {
     //Arrange
-    const projectAPI = null;
+    const projectAPI = undefined;
 
     //Act
     const result: any = mapProjectFromApiToVm(projectAPI);

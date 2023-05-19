@@ -1,8 +1,6 @@
-import React from 'react';
 import { renderHook, act } from '@testing-library/react';
-import { confirmationDialogProps } from './confirmation-dialog.vm';
 import { useConfirmationDialog } from './confirmation-dialog.hook';
-import { createEmptyLookup, Lookup } from 'common/models';
+import { Lookup } from 'common/models';
 
 describe('common/Components/ConfirmationDialog/confirmation-dialog.hook.ts', () => {
   it('it returns the correct initial values', () => {
