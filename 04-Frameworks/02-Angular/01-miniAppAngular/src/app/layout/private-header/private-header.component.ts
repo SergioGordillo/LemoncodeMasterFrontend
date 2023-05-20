@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../pods/login/auth/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
+
+
 
 @Component({
   selector: 'app-private-header',
@@ -12,7 +14,12 @@ export class PrivateHeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  get username(): string | undefined {
+    return this.authService.username;
+  }
+
   logout() {
     this.authService.logout();
+    this.router.navigate(['./']);
   }
 }

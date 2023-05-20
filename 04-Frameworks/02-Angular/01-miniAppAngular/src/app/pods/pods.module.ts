@@ -21,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { PagesComponent } from './pages/pages.component';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth/auth.service';
+import { AuthServiceModule } from '../auth/auth-service.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { CommonModule } from '@angular/common';
     PagesComponent,
   ],
   imports: [
+    AuthServiceModule,
     CommonModule,
     MatButtonModule,
     MatCardModule,

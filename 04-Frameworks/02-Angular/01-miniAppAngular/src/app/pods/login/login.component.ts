@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   correct: boolean | undefined = undefined;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   myForm: FormGroup = this.fb.group({
     username: [
@@ -26,18 +31,22 @@ export class LoginComponent {
     );
   }
 
-  userIsCorrect() {
+  onLogin(): void {
     const { username, password } = this.myForm.value;
 
-    if (username == 'master8@lemoncode.net' && password == '12345678') {
-      console.log(this.myForm.value);
-      this.correct = true;
-      this.myForm.reset();
-      localStorage.setItem(username, password);
-      this.router.navigate(['./pages']);
-    } else {
-      this.correct = false;
-      console.log('error');
-    }
+    this.authService.login(username, password);
+    this.router.navigate(['./pages']);
+    this.myForm.reset();
+
+    // if (username == 'master8@lemoncode.net' && password == '12345678') {
+    //   console.log(this.myForm.value);
+    //   this.correct = true;
+    //   this.myForm.reset();
+    //   localStorage.setItem(username, password);
+    //   this.router.navigate(['./pages']);
+    // } else {
+    //   this.correct = false;
+    //   console.log('error');
+    // }
   }
 }

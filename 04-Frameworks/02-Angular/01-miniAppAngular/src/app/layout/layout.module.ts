@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PrivateHeaderComponent } from './private-header/private-header.component';
 import { PublicHeaderComponent } from './public-header/public-header.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { AuthServiceModule } from '../auth/auth-service.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AppRoutingModule } from '../app-routing.module';
   exports: [FooterComponent, PrivateHeaderComponent, PublicHeaderComponent],
   imports: [
     AppRoutingModule,
+    AuthServiceModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
