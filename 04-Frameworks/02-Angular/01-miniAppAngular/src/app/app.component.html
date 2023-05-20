@@ -1,7 +1,7 @@
-<app-public-header></app-public-header>
-<app-private-header></app-private-header>
-
-<!-- //TODO: Do conditional rendering for the header when I end up login implementation -->
+<ng-container *ngIf="(isLoggedIn$ | async) as isLoggedIn">
+  <app-public-header *ngIf="!isLoggedIn"></app-public-header>
+  <app-private-header *ngIf="isLoggedIn"></app-private-header>
+</ng-container>
 
 <router-outlet> </router-outlet>
 

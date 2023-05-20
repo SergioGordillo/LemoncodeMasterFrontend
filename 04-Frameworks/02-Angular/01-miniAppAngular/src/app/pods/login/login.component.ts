@@ -35,6 +35,7 @@ export class LoginComponent {
     const { username, password } = this.myForm.value;
 
     this.authService.login(username, password);
+    console.log("Hace el login de logincomponent");
     this.router.navigate(['./pages']);
     this.myForm.reset();
 
