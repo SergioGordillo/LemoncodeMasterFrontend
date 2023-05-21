@@ -1,21 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './interfaces/user.interface';
-import { Observable, defaultIfEmpty, map, of } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private user?: User;
-  username: string | undefined = '';
+  username: any = '';
+  public userIsAuthenticated: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private localStorageService: LocalStorageService
+  ) {
+    localStorageService.getUserLoginValidation('username') ===
+    'master8@lemoncode.net'
+      ? (this.userIsAuthenticated = true)
+      : (this.userIsAuthenticated = false);
+  }
 
   login(username: string, password: string): boolean {
     if (username === 'master8@lemoncode.net' && password === '12345678') {
       this.username = 'master8@lemoncode.net';
-      localStorage.setItem(username, password);
+      this.localStorageService.setUserLoginValidation(username, password);
+      this.userIsAuthenticated = true;
+      this.router.navigate(['./pages']);
       return true;
     } else {
       return false;
@@ -23,21 +34,22 @@ export class AuthService {
   }
 
   logout(): void {
-    this.username = undefined;
-    console.log('Hace el logout del servicio');
+    this.username = null;
     this.router.navigate(['./']);
-    localStorage.clear();
+    this.localStorageService.clear();
+    this.userIsAuthenticated = false;
   }
 
-  isLogged(): Observable<boolean> {
-    return this.getUserCredentials().pipe(
-      map((credentials) => !!credentials.username),
-      defaultIfEmpty(false)
-    );
+  isLogged(): boolean {
+    return this.userIsAuthenticated;
   }
 
   getUserName() {
-    return this.username;
+    return this.getUserCredentials().pipe(
+      tap((user: User) => {
+        this.username = user.username;
+      })
+    );
   }
 
   getUserCredentials(): Observable<User> {

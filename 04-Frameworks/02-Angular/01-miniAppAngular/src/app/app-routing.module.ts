@@ -6,9 +6,18 @@ import { LoginComponent } from './pods/login/login.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   {
     path: 'pages',
     loadChildren: () => import('./pods/pods.module').then((m) => m.PodsModule),

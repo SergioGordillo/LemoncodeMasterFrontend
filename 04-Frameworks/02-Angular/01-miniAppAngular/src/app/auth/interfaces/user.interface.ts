@@ -1,4 +1,4 @@
 export interface User {
-  username: string | null;
-  password: string | null;
+  username: string | null | undefined;
+  password: string | null | undefined;
 }

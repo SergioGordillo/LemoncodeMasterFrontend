@@ -35,19 +35,6 @@ export class LoginComponent {
     const { username, password } = this.myForm.value;
 
     this.authService.login(username, password);
-    console.log("Hace el login de logincomponent");
-    this.router.navigate(['./pages']);
     this.myForm.reset();
-
-    // if (username == 'master8@lemoncode.net' && password == '12345678') {
-    //   console.log(this.myForm.value);
-    //   this.correct = true;
-    //   this.myForm.reset();
-    //   localStorage.setItem(username, password);
-    //   this.router.navigate(['./pages']);
-    // } else {
-    //   this.correct = false;
-    //   console.log('error');
-    // }
   }
 }

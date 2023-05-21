@@ -17,7 +17,6 @@ export class PrivateHeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log('Hace el logout del componente private header');
     this.authService.logout();
   }
 }
