@@ -1,0 +1,11 @@
+/* BODY */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* MEMBER */
+
+.member-img {
+    max-width: 100px;
+}
